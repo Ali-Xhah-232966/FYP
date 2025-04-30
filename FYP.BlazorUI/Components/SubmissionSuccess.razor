@@ -1,0 +1,27 @@
+﻿@page "/submission-success"
+@rendermode InteractiveServer
+@inject NavigationManager Navigation
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="text-center p-5 bg-white shadow-lg rounded">
+        <div class="mb-4">
+            <i class="fas fa-check-circle fa-5x text-success"></i>
+        </div>
+        <h1 class="display-4 font-weight-bold" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            🎉 Submission Successful!
+        </h1>
+        <p class="lead mt-3" style="font-size: 1.25rem;">
+            Your project request has been saved. We’ll be in touch soon.
+        </p>
+        <button class="btn btn-primary btn-lg mt-4 px-4" @onclick="GoHome">
+            Go to Home
+        </button>
+    </div>
+</div>
+
+@code {
+    private void GoHome()
+    {
+        Navigation.NavigateTo("/");
+    }
+}

@@ -1,0 +1,12 @@
+C:\Users\alixh\source\repos\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.deps.json
+C:\Users\alixh\source\repos\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.dll
+C:\Users\alixh\source\repos\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.pdb
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.csproj.AssemblyReference.cache
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfoInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfo.cs
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.csproj.CoreCompileInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.dll
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\refint\FYP.DAL.dll
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.pdb
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\ref\FYP.DAL.dll

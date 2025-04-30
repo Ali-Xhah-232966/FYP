@@ -1,0 +1,453 @@
+﻿@page "/create-project"
+@using FYP.DAL.Entities
+@using FYP.BLL.Interfaces
+@rendermode InteractiveServer
+@inject IProjectService ProjectService
+@inject NavigationManager Navigation
+
+<style>
+    @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+    @@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        min-height: 100vh;
+    }
+
+    .service-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+    }
+
+        .service-cards .card {
+            background: rgba(128, 128, 128, 0.1) !important;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .service-cards .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                background: rgba(128, 128, 128, 0.2) !important;
+            }
+
+            .service-cards .card.active {
+                border: 2px solid #4CAF50;
+                background: rgba(76, 175, 80, 0.1) !important;
+            }
+
+            .service-cards .card i {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                color: #4CAF50;
+            }
+
+    /* Enhanced Containers */
+    .service-details,
+    .contact-info {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        padding: 2rem;
+        background: rgba(128, 128, 128, 0.1) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Form Elements */
+    .form-control {
+        border-radius: 8px;
+        padding: 12px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.8) !important;
+        backdrop-filter: blur(5px);
+    }
+
+        .form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+        }
+
+    /* Checkbox Cards */
+    .service-option {
+        padding: 1.2rem;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.8) !important;
+        backdrop-filter: blur(5px);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+        .service-option:hover {
+            transform: translateY(-3px);
+            border-color: #4CAF50;
+            box-shadow: 0 6px 12px rgba(76, 175, 80, 0.1);
+        }
+
+        .service-option.selected {
+            border-color: #4CAF50;
+            background: rgba(76, 175, 80, 0.15) !important;
+            box-shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
+        }
+
+        .service-option .form-check-input {
+            margin: 0;
+            width: 1.3em;
+            height: 1.3em;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+            .service-option .form-check-input:checked {
+                background-color: #4CAF50;
+                border-color: #45a049;
+                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
+            }
+
+    /* Enhanced Dropdown */
+    .select-wrapper {
+        position: relative;
+    }
+
+        .select-wrapper::after {
+            content: "▾";
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.2rem;
+            pointer-events: none;
+        }
+
+    InputSelect.form-control {
+        appearance: none;
+        padding: 12px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.9) !important;
+    }
+
+        InputSelect.form-control:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 12px rgba(76, 175, 80, 0.2);
+        }
+
+    .form-control option {
+        padding: 12px 15px;
+        background: rgba(255, 255, 255, 0.9);
+        transition: background 0.2s ease;
+    }
+
+        .form-control option:hover {
+            background: #f5f7fa !important;
+        }
+
+        .form-control option:checked {
+            background: #4CAF50;
+            color: white;
+        }
+
+    /* Buttons & Labels */
+    .btn {
+        border-radius: 8px;
+        padding: 12px 24px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(5px);
+    }
+
+    .btn-primary {
+        background: #4CAF50;
+        border-color: #45a049;
+    }
+
+        .btn-primary:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        border-color: #5a6268;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+    h2, h3, h4 {
+        color: #2c3e50;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #34495e;
+        }
+
+    .navigation-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+        margin-top: 2rem;
+    }
+
+    @@media (max-width: 768px) {
+        .service-cards {
+            grid-template-columns: 1fr;
+            padding: 1rem;
+        }
+
+        .service-details, .contact-info {
+            padding: 1.5rem;
+            margin: 1rem;
+        }
+
+        .btn {
+            width: 100%;
+            margin: 0.5rem 0;
+        }
+
+        .navigation-buttons {
+            flex-direction: column;
+        }
+
+        .service-option {
+            padding: 1rem;
+        }
+    }
+</style>
+
+<EditForm Model="CurrentData" OnValidSubmit="HandleSubmit">
+    <DataAnnotationsValidator />
+
+    @if (currentStep == 1)
+    {
+        <h2>What type of service does your project require</h2>
+        <div class="service-cards d-flex justify-content-around mb-4">
+            <div class="card @(CurrentData.ServiceType == ServiceType.Solar ? "active border-primary" : "") p-3"
+                 @onclick="() => SelectService(ServiceType.Solar)">
+                <div class="text-center">
+                    <i class="fas fa-solar-panel fa-3x text-primary mb-2"></i>
+                    <h5>Solar Solution</h5>
+                </div>
+            </div>
+            <div class="card @(CurrentData.ServiceType == ServiceType.Electrical ? "active border-warning" : "") p-3"
+                 @onclick="() => SelectService(ServiceType.Electrical)">
+                <div class="text-center">
+                    <i class="fas fa-bolt fa-3x text-warning mb-2"></i>
+                    <h5>Electrical Solution</h5>
+                </div>
+            </div>
+            <div class="card @(CurrentData.ServiceType == ServiceType.Repair ? "active border-danger" : "") p-3"
+                 @onclick="() => SelectService(ServiceType.Repair)">
+                <div class="text-center">
+                    <i class="fas fa-tools fa-3x text-danger mb-2"></i>
+                    <h5>Repair & Maintenance</h5>
+                </div>
+            </div>
+        </div>
+    }
+    else if (currentStep == 2)
+    {
+        <div class="service-details p-4 bg-white rounded shadow-sm mb-4">
+            @if (CurrentData.ServiceType == ServiceType.Solar)
+            {
+                <h4 class="mb-4">Select Solar Plant Size</h4>
+                <div class="select-wrapper">
+                    <InputSelect @bind-Value="CurrentData.KwSize" class="form-control mb-4">
+                        <option value="">Select Size</option>
+                        <option value="1.2">1.2kW (Basic Residential)</option>
+                        <option value="2.2">2.2kW (Standard Home)</option>
+                        <option value="3.2">3.2kW (Large Home)</option>
+                        <option value="5">5kW (Small Business)</option>
+                        <option value="10">10kW (Commercial)</option>
+                    </InputSelect>
+                </div>
+            }
+            else
+            {
+                <h4 class="mb-4">Select Required Services</h4>
+                <div class="row">
+                    @foreach (var service in GetServicesForType())
+                    {
+                        <div class="col-md-6 mb-3">
+                            <div class="service-option @(CurrentData.SelectedServices.Contains(service) ? "selected" : "")">
+                                <input class="form-check-input"
+                                       type="checkbox"
+                                       id="chk_@service"
+                                       checked="@CurrentData.SelectedServices.Contains(service)"
+                                       @onchange="@(e => HandleServiceCheckbox(e, service))" />
+                                <label class="form-check-label d-flex align-items-center" for="chk_@service">
+                                    <i class="fas @(GetServiceIcon(service)) text-muted mr-2"></i>
+                                    @service
+                                </label>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
+                <button type="button" class="btn btn-primary" @onclick="NextStep">Next</button>
+            </div>
+        </div>
+    }
+    else if (currentStep == 3)
+    {
+        <div class="contact-info p-4 bg-white rounded shadow-sm mb-4">
+            <div class="form-group">
+                <label>Address</label>
+                <InputText @bind-Value="CurrentData.Address" class="form-control" placeholder="Enter your address" />
+                <ValidationMessage For="@(() => CurrentData.Address)" />
+            </div>
+            <div class="form-group">
+                <label>Booking Date</label>
+                <InputDate @bind-Value="CurrentData.BookingDate" class="form-control" />
+                <ValidationMessage For="@(() => CurrentData.BookingDate)" />
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
+                <button type="button" class="btn btn-primary" @onclick="NextStep">Next</button>
+            </div>
+        </div>
+    }
+    else if (currentStep == 4)
+    {
+        <div class="contact-info p-4 bg-white rounded shadow-sm">
+            <ValidationSummary />
+            <div class="form-group">
+                <label>Contact Name</label>
+                <InputText @bind-Value="CurrentData.ContactName" class="form-control" placeholder="Full name" />
+                <ValidationMessage For="@(() => CurrentData.ContactName)" />
+            </div>
+            <div class="form-group">
+                <label>Contact Email</label>
+                <InputText @bind-Value="CurrentData.ContactEmail" class="form-control" placeholder="you@example.com" />
+                <ValidationMessage For="@(() => CurrentData.ContactEmail)" />
+            </div>
+            <div class="form-group">
+                <label>Phone Number</label>
+                <InputText @bind-Value="CurrentData.ContactPhone" class="form-control" placeholder="+1234567890" />
+                <ValidationMessage For="@(() => CurrentData.ContactPhone)" />
+            </div>
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    }
+</EditForm>
+
+@code {
+    private ProjectSubmission CurrentData { get; set; } = new ProjectSubmission
+        {
+            SelectedServices = new List<string>(),
+            BookingDate = DateTime.Today
+        };
+    private int currentStep = 1;
+
+    private List<string> ElectricalServices = new()
+    {
+        "CCTV installation",
+        "Fire alarm system",
+        "EV charging",
+        "Electrical wiring",
+        "Lighting design",
+        "AC installation"
+    };
+
+    private List<string> RepairServices = new()
+    {
+        "Solar system maintenance",
+        "Electrical repairs",
+        "Appliance repairs",
+        "Wiring fixes",
+        "Lighting maintenance"
+    };
+
+    private string GetServiceIcon(string service)
+    {
+        return service switch
+        {
+            string s when s.Contains("CCTV") => "fa-video",
+            string s when s.Contains("Fire") => "fa-fire-extinguisher",
+            string s when s.Contains("EV") => "fa-charging-station",
+            string s when s.Contains("wiring") => "fa-bolt",
+            string s when s.Contains("Lighting") => "fa-lightbulb",
+            string s when s.Contains("AC") => "fa-wind",
+            string s when s.Contains("Solar") => "fa-solar-panel",
+            string s when s.Contains("Appliance") => "fa-tools",
+            _ => "fa-check-circle"
+        };
+    }
+
+    private void SelectService(ServiceType service)
+    {
+        CurrentData.ServiceType = service;
+        NextStep();
+    }
+
+    private List<string> GetServicesForType() =>
+        CurrentData.ServiceType switch
+        {
+            ServiceType.Electrical => ElectricalServices,
+            ServiceType.Repair => RepairServices,
+            _ => new()
+        };
+
+    private void HandleServiceCheckbox(ChangeEventArgs e, string service)
+    {
+        bool isChecked = (bool?)e.Value ?? false;
+        if (isChecked)
+        {
+            if (!CurrentData.SelectedServices.Contains(service))
+                CurrentData.SelectedServices.Add(service);
+        }
+        else
+        {
+            CurrentData.SelectedServices.Remove(service);
+        }
+    }
+
+    private void NextStep() => currentStep = Math.Min(currentStep + 1, 4);
+    private void PreviousStep() => currentStep = Math.Max(currentStep - 1, 1);
+
+    private async Task HandleSubmit()
+    {
+        await ProjectService.SubmitProjectAsync(CurrentData);
+        Navigation.NavigateTo("/submission-success");
+    }
+}

@@ -1,0 +1,148 @@
+﻿@page "/contact-messages"
+@rendermode InteractiveServer
+@using FYP.BLL.Interfaces
+@using FYP.DAL.Entities
+@inject IContactUsService ContactUsService
+
+<style>
+    .contact-card {
+        transition: all 0.3s ease-in-out;
+        background: rgba(245, 245, 245, 0.9) !important;
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            background: rgba(245, 245, 245, 0.95) !important;
+        }
+
+    .card-text {
+        height: 100px;
+        overflow-y: auto;
+        padding-right: 8px;
+        margin-bottom: 1rem;
+        color: #444;
+    }
+
+        .card-text::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .card-text::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+    .delete-btn {
+        transition: all 0.2s ease;
+        opacity: 0.9;
+        background-color: #ff4444;
+        border: none;
+        color: white !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.05em;
+    }
+
+        .delete-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+            color: white !important;
+        }
+
+        .delete-btn i {
+            filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+        }
+
+    .info-panel {
+        background: rgba(255, 255, 255, 0.6) !important;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        backdrop-filter: blur(4px);
+    }
+
+    .spinner-container {
+        min-height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+
+<h3 class="text-center my-4 display-5 fw-bold text-dark">Contact Submissions</h3>
+
+@if (contacts == null)
+{
+    <div class="spinner-container">
+        <div class="spinner-grow text-secondary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+}
+else if (!contacts.Any())
+{
+    <div class="alert alert-light text-center mt-4 shadow-sm border">No messages found ✨</div>
+}
+else
+{
+    <div class="row g-4 px-3">
+        @foreach (var contact in contacts)
+        {
+            <div class="col-md-6 col-lg-4">
+                <div class="card contact-card h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="flex-grow-1">
+                                <h5 class="card-title fw-bold mb-0 text-dark">@contact.Name</h5>
+                                <small class="text-muted">@contact.Email</small>
+                            </div>
+                        </div>
+                        <p class="card-text">@contact.Message</p>
+                        <div class="info-panel p-3 rounded-2">
+                            <ul class="list-unstyled small mb-0">
+                                <li class="d-flex justify-content-between">
+                                    <span class="text-muted">Phone:</span>
+                                    <span class="fw-medium text-dark">@contact.PhoneNumber</span>
+                                </li>
+                                <li class="d-flex justify-content-between">
+                                    <span class="text-muted">Submitted:</span>
+                                    <span class="text-primary">@contact.SubmittedAt.ToString("g")</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 d-flex justify-content-end py-3">
+                        <button class="btn delete-btn btn-sm px-3 py-2 text-white fw-bold"
+                                @onclick="() => DeleteContact(contact.Id)">
+                            <i class="fas fa-trash me-2"></i>Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private List<FYP.DAL.Entities.ContactUs> contacts;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadContacts();
+    }
+
+    private async Task LoadContacts()
+    {
+        var result = await ContactUsService.GetAllContactFormsAsync();
+        contacts = result.ToList();
+    }
+
+    private async Task DeleteContact(int id)
+    {
+        await ContactUsService.DeleteContactFormAsync(id);
+        await LoadContacts();
+    }
+}

@@ -1,0 +1,177 @@
+﻿@* Components/ProjectSubmissions.razor *@
+@page "/project-submissions"
+@inject IProjectService ProjectService
+@rendermode InteractiveServer
+
+<style scoped>
+    /* Transparent grey card with hover lift effect and accent border */
+    .submission-card {
+        background-color: rgba(128, 128, 128, 0.1);
+        backdrop-filter: blur(5px);
+        font-family: 'Segoe UI', sans-serif;
+        border-radius: 1rem;
+        border-top: 4px solid #0d6efd;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .submission-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+        }
+        /* Card header styling with vibrant background */
+        .submission-card .card-header {
+            background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+            border-radius: 1rem 1rem 0 0;
+            border-bottom: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+        }
+
+            .submission-card .card-header i {
+                font-size: 1.25rem;
+                color: rgba(255, 255, 255, 0.85);
+            }
+        /* Paragraph font adjustments */
+        .submission-card .card-body p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #343a40;
+        }
+    /* Accent badges for services and kw size */
+    .submission-badge {
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: transform 0.2s ease;
+    }
+
+        .submission-badge:hover {
+            transform: scale(1.1);
+        }
+    /* Footer contact styling matching header gradient */
+    .submission-card .card-footer {
+        background: linear-gradient(135deg, #0d6efd 0%, #6610f2 100%);
+        border-radius: 0 0 1rem 1rem;
+        font-size: 0.85rem;
+        color: #fff;
+        padding: 0.75rem 1rem;
+    }
+
+        .submission-card .card-footer small {
+            color: rgba(255, 255, 255, 0.85);
+        }
+    /* Mark as done button enhancements */
+    .btn-mark-done {
+        border-radius: 50px;
+        padding: 0.35rem 0.9rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        .btn-mark-done:hover {
+            background-color: #198754;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+</style>
+
+<div class="container my-5">
+    <h2 class="mb-4 text-center text-primary display-5 fw-bold text-uppercase">Project Submissions</h2>
+
+    @if (submissions == null)
+    {
+        <div class="d-flex justify-content-center align-items-center" style="height:200px;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    }
+    else if (!submissions.Any())
+    {
+        <div class="alert alert-info text-center">No submissions found.</div>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var sub in submissions)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card submission-card h-100 border-0 shadow-sm">
+                        <div class="card-header">
+                            <i class="bi bi-layers-fill me-2"></i>
+                            @sub.ServiceType
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-2 text-truncate"><strong>Address:</strong> @sub.Address</p>
+                            <p class="mb-2"><strong>Date:</strong> @sub.BookingDate.ToString("dd MMM yyyy")</p>
+                            <p class="mb-2"><strong>Project Type:</strong> @(sub.ProjectType?.ToString() ?? "N/A")</p>
+                            <p class="mb-2">
+                                <strong>Status:</strong> @sub.Status
+                                @if (sub.Status == "Pending")
+                                {
+                                    <button class="btn btn-success btn-mark-done ms-2" @onclick="() => MarkAsDone(sub)">
+                                        Mark as done
+                                    </button>
+                                }
+                            </p>
+                            <p class="mb-2">
+                                <strong>KW Size:</strong>
+                                @if (sub.KwSize != null)
+                                {
+                                    <span class="badge bg-info submission-badge">@($"{sub.KwSize.Value:N1} kW")</span>
+                                }
+                                else
+                                {
+                                    <span class="text-muted">N/A</span>
+                                }
+                            </p>
+                            <p class="mb-2">
+                                <strong>Services:</strong>
+                                @if (sub.SelectedServices?.Any() ?? false)
+                                {
+                                    @foreach (var svc in sub.SelectedServices)
+                                    {
+                                        <span class="badge bg-secondary submission-badge">@svc</span>
+                                    }
+                                }
+                                else
+                                {
+                                    <span class="text-muted">N/A</span>
+                                }
+                            </p>
+                        </div>
+                        <div class="card-footer footer-contact d-flex flex-column">
+                            <span><strong>@sub.ContactName</strong></span>
+                            <small>@sub.ContactEmail</small>
+                            <small>@sub.ContactPhone</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    private List<ProjectSubmission> submissions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        submissions = await ProjectService.GetAllSubmissionsAsync();
+    }
+
+    private async Task MarkAsDone(ProjectSubmission sub)
+    {
+        // Persist status change on the server
+        await ProjectService.UpdateSubmissionStatusAsync(sub.Id, "Done");
+
+        // Update UI
+        sub.Status = "Done";
+        StateHasChanged();
+    }
+}

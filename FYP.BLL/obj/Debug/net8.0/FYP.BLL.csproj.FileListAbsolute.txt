@@ -1,0 +1,15 @@
+C:\Users\alixh\source\repos\FYP\FYP.BLL\bin\Debug\net8.0\FYP.BLL.deps.json
+C:\Users\alixh\source\repos\FYP\FYP.BLL\bin\Debug\net8.0\FYP.BLL.dll
+C:\Users\alixh\source\repos\FYP\FYP.BLL\bin\Debug\net8.0\FYP.BLL.pdb
+C:\Users\alixh\source\repos\FYP\FYP.BLL\bin\Debug\net8.0\FYP.DAL.dll
+C:\Users\alixh\source\repos\FYP\FYP.BLL\bin\Debug\net8.0\FYP.DAL.pdb
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.csproj.AssemblyReference.cache
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.AssemblyInfoInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.AssemblyInfo.cs
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.csproj.CoreCompileInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.csproj.Up2Date
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.dll
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\refint\FYP.BLL.dll
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.pdb
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\ref\FYP.BLL.dll
