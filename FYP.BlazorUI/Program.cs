@@ -1,8 +1,8 @@
 using FYP.BLL.Interfaces;
 using FYP.BLL.Services;
 using FYP.BlazorUI.Components;
-using FYP.BLL.Interfaces;
-using FYP.BLL.Services;
+
+
 using FYP.DAL;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,8 +18,9 @@ builder.Services.AddHttpContextAccessor();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
+
 builder.Services.AddDbContext<FYP.DAL.ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlite(connectionString));
 
 
 // Register BLL services

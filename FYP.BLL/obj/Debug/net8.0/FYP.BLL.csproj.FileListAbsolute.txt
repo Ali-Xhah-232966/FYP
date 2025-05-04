@@ -8,6 +8,7 @@ C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.GeneratedMSBuil
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.AssemblyInfoInputs.cache
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.AssemblyInfo.cs
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.csproj.CoreCompileInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.sourcelink.json
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.csproj.Up2Date
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\FYP.BLL.dll
 C:\Users\alixh\source\repos\FYP\FYP.BLL\obj\Debug\net8.0\refint\FYP.BLL.dll

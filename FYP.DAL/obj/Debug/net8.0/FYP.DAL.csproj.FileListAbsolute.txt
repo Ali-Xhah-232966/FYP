@@ -6,6 +6,7 @@ C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.GeneratedMSBuil
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfoInputs.cache
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfo.cs
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.csproj.CoreCompileInputs.cache
+C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.sourcelink.json
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.dll
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\refint\FYP.DAL.dll
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.pdb
