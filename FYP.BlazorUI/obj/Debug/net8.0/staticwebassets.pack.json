@@ -1,28 +1,100 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
-      "PackagePath": "staticwebassets\\FYP.BlazorUI.01u8z27jrx.bundle.scp.css"
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FYP.BlazorUI.znt4sod5ad.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\LOGO.jpg",
+      "PackagePath": "staticwebassets\\LOGO.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video-new.mp4",
+      "PackagePath": "staticwebassets\\bootstrap\\video-new.mp4"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video1.mp4",
+      "PackagePath": "staticwebassets\\bootstrap\\video1.mp4"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image1.png",
+      "PackagePath": "staticwebassets\\image1.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image2.png",
+      "PackagePath": "staticwebassets\\image2.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image3.png",
+      "PackagePath": "staticwebassets\\image3.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\1.2kw.png",
+      "PackagePath": "staticwebassets\\img\\1.2kw.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\10kw.jpg",
+      "PackagePath": "staticwebassets\\img\\10kw.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\2.2kw.png",
+      "PackagePath": "staticwebassets\\img\\2.2kw.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\20kw.jpg",
+      "PackagePath": "staticwebassets\\img\\20kw.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\3.2kw.png",
+      "PackagePath": "staticwebassets\\img\\3.2kw.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\30kw.jpg",
+      "PackagePath": "staticwebassets\\img\\30kw.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\5kw.jpg",
+      "PackagePath": "staticwebassets\\img\\5kw.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\inverter.jpg",
+      "PackagePath": "staticwebassets\\img\\inverter.jpg"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\navbar.js",
+      "PackagePath": "staticwebassets\\js\\navbar.js"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png",
+      "PackagePath": "staticwebassets\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png"
+    },
+    {
+      "Id": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png",
+      "PackagePath": "staticwebassets\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FYP.BlazorUI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

@@ -1,0 +1,64 @@
+<style >
+.initial-circle[b-n1ud789vht] {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.review-card[b-n1ud789vht] {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+    .review-card:hover[b-n1ud789vht] {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
+
+.toast-message[b-n1ud789vht] {
+    position: fixed;
+    top: 60px; /* Adjust based on your navbar height */
+    left: 20px; /* Left side */
+    z-index: 1100;
+    min-width: 250px;
+    max-width: 350px;
+    border-radius: 4px;
+}
+
+
+.modal-backdrop[b-n1ud789vht] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1040;
+}
+
+.modal[b-n1ud789vht] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.modal-content[b-n1ud789vht] {
+    background-color: white;
+    color: black;
+}
+
+
+</style[b-n1ud789vht] >

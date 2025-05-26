@@ -22,11 +22,20 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<FYP.DAL.ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 
+builder.Services.AddScoped<IBlogService, BlogService>();
 
 // Register BLL services
 builder.Services.AddScoped<IContactUsService, ContactUsService>();
 // Add this with other service registrations
 builder.Services.AddScoped<IProjectService, ProjectService>();
+
+// after AddDbContext:
+builder.Services.AddScoped<IReviewService, ReviewService>();
+
+
+builder.Services.AddHttpClient();
+
+
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AssxBGroJlfB27ikkyuv8p4/0I9j5i9WwIsZx1t4ZIA=",
+  "Hash": "zZg2RdxEhReoAJQIQF4yj6bw1M96HH0KYkoK7ipAqDI=",
   "Source": "FYP.BlazorUI",
   "BasePath": "_content/FYP.BlazorUI",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "FYP.BlazorUI\\wwwroot",
       "Source": "FYP.BlazorUI",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "FYP.BlazorUI#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -31,17 +31,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "01u8z27jrx",
-      "Integrity": "BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=",
+      "Fingerprint": "znt4sod5ad",
+      "Integrity": "L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css"
+      "OriginalItemSpec": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "FYP.BlazorUI#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -52,17 +52,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "01u8z27jrx",
-      "Integrity": "BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=",
+      "Fingerprint": "znt4sod5ad",
+      "Integrity": "L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "app#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -73,17 +73,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "da95v2qkru",
-      "Integrity": "u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=",
+      "Fingerprint": "3r8b2a0bt1",
+      "Integrity": "8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "bootstrap/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -94,17 +94,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "bpk8xqwxhs",
-      "Integrity": "z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
+      "Fingerprint": "6gzpyzhau4",
+      "Integrity": "SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -122,10 +122,73 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video1.mp4",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "bootstrap/video1#[.{fingerprint}]?.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b0lasv4lpd",
+      "Integrity": "JX98EfxKY5ukenrVLQlua6GFvOkUtIv+wXRbwZywFpc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\video1.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video-new.mp4",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "bootstrap/video-new#[.{fingerprint}]?.mp4",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "coasinghsv",
+      "Integrity": "9Iw+cYoPstjd/0AMQoE+w/nn51wqvo11EtOzyO5lt8w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\bootstrap\\video-new.mp4"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\site.css",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "moix0ppsq2",
+      "Integrity": "1nD7b4XMnxJflaA7x7kJCyqaTJiYKoYDL4rqXeWSeIQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "favicon#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -143,10 +206,262 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image1.png",
       "SourceId": "FYP.BlazorUI",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "image1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "68udx29cfz",
+      "Integrity": "uoxFEdx7J0zNa1Fy3zGdScZBk8g1Hest9ImlB99vdWY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image1.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image2.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "image2#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t2ftkaenk3",
+      "Integrity": "a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image2.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image3.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "image3#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aa80n6zaev",
+      "Integrity": "8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\image3.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\1.2kw.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/1.2kw#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5it83g8frl",
+      "Integrity": "o1UFFiJAjzzUrHXvERnLRqNWMoUr9o20E1PUbQYZzRw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\1.2kw.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\10kw.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/10kw#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ei3mvga0zs",
+      "Integrity": "Rhoe8W+AW/dmAXvSbKUt3/J8Yuj5u+tTigK6MePE/V8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\10kw.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\2.2kw.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/2.2kw#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n17c65vehr",
+      "Integrity": "qxhf0D0Pv/kR0j/IYZ1bWgq3W0ZbLZ+dzxBUVPGKyso=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\2.2kw.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\20kw.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/20kw#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3abaefxonj",
+      "Integrity": "m9GnCEtkUfgEaZGLRXYt6uc6ZfGCAV72IwEp+gDIvPU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\20kw.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\3.2kw.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/3.2kw#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "koqbqmw3h3",
+      "Integrity": "LHLZRSfNBA/PAOx3b2OQ39tegS6HiRU+g8NWkWzQNDM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\3.2kw.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\30kw.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/30kw#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "437mv9x3ez",
+      "Integrity": "oB/wIzQrElqHFtUNVzD7OEEQdgtZGrPsTyb7zVFbqc4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\30kw.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\5kw.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/5kw#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rxptc70ral",
+      "Integrity": "j/BRls8YODIPumgJjBMqypmpm6OHEcKnfpIh8kJdvHc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\5kw.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\inverter.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "img/inverter#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "l8grzjmdrt",
+      "Integrity": "9VmyuTQyVq5Xb8YX0Bxy8xJPc7mtzx7AJz6fIYOKz8I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\inverter.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\navbar.js",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "js/navbar#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "30z88s24et",
+      "Integrity": "M3vG7hozPl5ypaGuJ6ut5jLsr17h6pcfQbWlyXkoNUk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\navbar.js"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
       "BasePath": "_content/FYP.BlazorUI",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -162,12 +477,75 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\LOGO.jpg",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "LOGO#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qbi0wra2dn",
+      "Integrity": "xuiPQd9lnC9qNqMhlTxGm0Dq6A/5qTPFpdeAwYLgauI=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\LOGO.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "uploads/112f7ab0-51d0-48dc-a831-28c0b91ca563#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "t2ftkaenk3",
+      "Integrity": "a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png"
+    },
+    {
+      "Identity": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png",
+      "SourceId": "FYP.BlazorUI",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\",
+      "BasePath": "_content/FYP.BlazorUI",
+      "RelativePath": "uploads/b7c605ce-282d-4e33-8a8f-7657bb71455e#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "aa80n6zaev",
+      "Integrity": "8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png"
     }
   ],
   "Endpoints": [
     {
-      "Route": "app.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
+      "Route": "app.3r8b2a0bt1.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -176,7 +554,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2591"
+          "Value": "3"
         },
         {
           "Name": "Content-Type",
@@ -184,48 +562,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
+          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
-        }
-      ]
-    },
-    {
-      "Route": "app.da95v2qkru.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2591"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Tue, 13 May 2025 12:49:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -235,7 +576,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "da95v2qkru"
+          "Value": "3r8b2a0bt1"
         },
         {
           "Name": "label",
@@ -243,13 +584,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-u9qEka1auR7E3rd3/8/j8hkQdSOYj9bRJ4nYiFDR1sE="
+          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
         }
       ]
     },
     {
-      "Route": "bootstrap/bootstrap.min.bpk8xqwxhs.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Route": "app.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -258,7 +599,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "162720"
+          "Value": "3"
         },
         {
           "Name": "Content-Type",
@@ -266,56 +607,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
+          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "bpk8xqwxhs"
-        },
-        {
-          "Name": "label",
-          "Value": "bootstrap/bootstrap.min.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
-        }
-      ]
-    },
-    {
-      "Route": "bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162720"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Tue, 13 May 2025 12:49:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -325,13 +621,95 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg="
+          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.6gzpyzhau4.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6gzpyzhau4"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/bootstrap.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/bootstrap.min.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "162726"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
         }
       ]
     },
     {
       "Route": "bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -352,7 +730,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -376,7 +754,7 @@
     },
     {
       "Route": "bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -397,7 +775,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -412,8 +790,254 @@
       ]
     },
     {
+      "Route": "bootstrap/video1.b0lasv4lpd.mp4",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video1.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4998275"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JX98EfxKY5ukenrVLQlua6GFvOkUtIv+wXRbwZywFpc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 01:26:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b0lasv4lpd"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/video1.mp4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JX98EfxKY5ukenrVLQlua6GFvOkUtIv+wXRbwZywFpc="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/video1.mp4",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video1.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4998275"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JX98EfxKY5ukenrVLQlua6GFvOkUtIv+wXRbwZywFpc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 01:26:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-JX98EfxKY5ukenrVLQlua6GFvOkUtIv+wXRbwZywFpc="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/video-new.coasinghsv.mp4",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video-new.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2885216"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9Iw+cYoPstjd/0AMQoE+w/nn51wqvo11EtOzyO5lt8w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 11:00:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "coasinghsv"
+        },
+        {
+          "Name": "label",
+          "Value": "bootstrap/video-new.mp4"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9Iw+cYoPstjd/0AMQoE+w/nn51wqvo11EtOzyO5lt8w="
+        }
+      ]
+    },
+    {
+      "Route": "bootstrap/video-new.mp4",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video-new.mp4",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2885216"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "video/mp4"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9Iw+cYoPstjd/0AMQoE+w/nn51wqvo11EtOzyO5lt8w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 11:00:44 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9Iw+cYoPstjd/0AMQoE+w/nn51wqvo11EtOzyO5lt8w="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1388"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1nD7b4XMnxJflaA7x7kJCyqaTJiYKoYDL4rqXeWSeIQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 10:59:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1nD7b4XMnxJflaA7x7kJCyqaTJiYKoYDL4rqXeWSeIQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.moix0ppsq2.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1388"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1nD7b4XMnxJflaA7x7kJCyqaTJiYKoYDL4rqXeWSeIQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 26 May 2025 10:59:37 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "moix0ppsq2"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1nD7b4XMnxJflaA7x7kJCyqaTJiYKoYDL4rqXeWSeIQ="
+        }
+      ]
+    },
+    {
       "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -434,7 +1058,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -458,7 +1082,7 @@
     },
     {
       "Route": "favicon.png",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -479,7 +1103,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 26 Apr 2025 12:37:32 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -494,8 +1118,8 @@
       ]
     },
     {
-      "Route": "FYP.BlazorUI.01u8z27jrx.bundle.scp.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "Route": "FYP.BlazorUI.bundle.scp.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -504,7 +1128,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8195"
+          "Value": "18309"
         },
         {
           "Name": "Content-Type",
@@ -512,11 +1136,85 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=\""
+          "Value": "\"L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 10:31:26 GMT"
+          "Value": "Sun, 25 May 2025 17:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ="
+        }
+      ]
+    },
+    {
+      "Route": "FYP.BlazorUI.styles.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18309"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 17:10:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ="
+        }
+      ]
+    },
+    {
+      "Route": "FYP.BlazorUI.znt4sod5ad.bundle.scp.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18309"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 17:10:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -526,7 +1224,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "01u8z27jrx"
+          "Value": "znt4sod5ad"
         },
         {
           "Name": "label",
@@ -534,13 +1232,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g="
+          "Value": "sha256-L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ="
         }
       ]
     },
     {
-      "Route": "FYP.BlazorUI.01u8z27jrx.styles.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
+      "Route": "FYP.BlazorUI.znt4sod5ad.styles.css",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -549,7 +1247,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8195"
+          "Value": "18309"
         },
         {
           "Name": "Content-Type",
@@ -557,11 +1255,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=\""
+          "Value": "\"L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 10:31:26 GMT"
+          "Value": "Sun, 25 May 2025 17:10:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -571,7 +1269,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "01u8z27jrx"
+          "Value": "znt4sod5ad"
         },
         {
           "Name": "label",
@@ -579,13 +1277,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g="
+          "Value": "sha256-L3v5hzb6a7Um5hNsNcBq+CSpJDa2V9tm1F3HePbd1nQ="
         }
       ]
     },
     {
-      "Route": "FYP.BlazorUI.bundle.scp.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "Route": "image1.68udx29cfz.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image1.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -594,19 +1292,966 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8195"
+          "Value": "2187828"
         },
         {
           "Name": "Content-Type",
-          "Value": "text/css"
+          "Value": "image/png"
         },
         {
           "Name": "ETag",
-          "Value": "\"BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=\""
+          "Value": "\"uoxFEdx7J0zNa1Fy3zGdScZBk8g1Hest9ImlB99vdWY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 10:31:26 GMT"
+          "Value": "Sun, 23 Mar 2025 09:35:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "68udx29cfz"
+        },
+        {
+          "Name": "label",
+          "Value": "image1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uoxFEdx7J0zNa1Fy3zGdScZBk8g1Hest9ImlB99vdWY="
+        }
+      ]
+    },
+    {
+      "Route": "image1.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2187828"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uoxFEdx7J0zNa1Fy3zGdScZBk8g1Hest9ImlB99vdWY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 09:35:53 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uoxFEdx7J0zNa1Fy3zGdScZBk8g1Hest9ImlB99vdWY="
+        }
+      ]
+    },
+    {
+      "Route": "image2.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 09:35:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo="
+        }
+      ]
+    },
+    {
+      "Route": "image2.t2ftkaenk3.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 09:35:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t2ftkaenk3"
+        },
+        {
+          "Name": "label",
+          "Value": "image2.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo="
+        }
+      ]
+    },
+    {
+      "Route": "image3.aa80n6zaev.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 09:35:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aa80n6zaev"
+        },
+        {
+          "Name": "label",
+          "Value": "image3.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc="
+        }
+      ]
+    },
+    {
+      "Route": "image3.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 23 Mar 2025 09:35:51 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc="
+        }
+      ]
+    },
+    {
+      "Route": "img/1.2kw.5it83g8frl.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\1.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "389983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o1UFFiJAjzzUrHXvERnLRqNWMoUr9o20E1PUbQYZzRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5it83g8frl"
+        },
+        {
+          "Name": "label",
+          "Value": "img/1.2kw.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-o1UFFiJAjzzUrHXvERnLRqNWMoUr9o20E1PUbQYZzRw="
+        }
+      ]
+    },
+    {
+      "Route": "img/1.2kw.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\1.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "389983"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"o1UFFiJAjzzUrHXvERnLRqNWMoUr9o20E1PUbQYZzRw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-o1UFFiJAjzzUrHXvERnLRqNWMoUr9o20E1PUbQYZzRw="
+        }
+      ]
+    },
+    {
+      "Route": "img/10kw.ei3mvga0zs.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\10kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "292786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Rhoe8W+AW/dmAXvSbKUt3/J8Yuj5u+tTigK6MePE/V8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:12:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ei3mvga0zs"
+        },
+        {
+          "Name": "label",
+          "Value": "img/10kw.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Rhoe8W+AW/dmAXvSbKUt3/J8Yuj5u+tTigK6MePE/V8="
+        }
+      ]
+    },
+    {
+      "Route": "img/10kw.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\10kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "292786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Rhoe8W+AW/dmAXvSbKUt3/J8Yuj5u+tTigK6MePE/V8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:12:39 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Rhoe8W+AW/dmAXvSbKUt3/J8Yuj5u+tTigK6MePE/V8="
+        }
+      ]
+    },
+    {
+      "Route": "img/2.2kw.n17c65vehr.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\2.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "345770"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qxhf0D0Pv/kR0j/IYZ1bWgq3W0ZbLZ+dzxBUVPGKyso=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n17c65vehr"
+        },
+        {
+          "Name": "label",
+          "Value": "img/2.2kw.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qxhf0D0Pv/kR0j/IYZ1bWgq3W0ZbLZ+dzxBUVPGKyso="
+        }
+      ]
+    },
+    {
+      "Route": "img/2.2kw.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\2.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "345770"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qxhf0D0Pv/kR0j/IYZ1bWgq3W0ZbLZ+dzxBUVPGKyso=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-qxhf0D0Pv/kR0j/IYZ1bWgq3W0ZbLZ+dzxBUVPGKyso="
+        }
+      ]
+    },
+    {
+      "Route": "img/20kw.3abaefxonj.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\20kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "303323"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m9GnCEtkUfgEaZGLRXYt6uc6ZfGCAV72IwEp+gDIvPU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:04:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3abaefxonj"
+        },
+        {
+          "Name": "label",
+          "Value": "img/20kw.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-m9GnCEtkUfgEaZGLRXYt6uc6ZfGCAV72IwEp+gDIvPU="
+        }
+      ]
+    },
+    {
+      "Route": "img/20kw.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\20kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "303323"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"m9GnCEtkUfgEaZGLRXYt6uc6ZfGCAV72IwEp+gDIvPU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:04:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-m9GnCEtkUfgEaZGLRXYt6uc6ZfGCAV72IwEp+gDIvPU="
+        }
+      ]
+    },
+    {
+      "Route": "img/3.2kw.koqbqmw3h3.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\3.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LHLZRSfNBA/PAOx3b2OQ39tegS6HiRU+g8NWkWzQNDM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "koqbqmw3h3"
+        },
+        {
+          "Name": "label",
+          "Value": "img/3.2kw.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LHLZRSfNBA/PAOx3b2OQ39tegS6HiRU+g8NWkWzQNDM="
+        }
+      ]
+    },
+    {
+      "Route": "img/3.2kw.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\3.2kw.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "349317"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LHLZRSfNBA/PAOx3b2OQ39tegS6HiRU+g8NWkWzQNDM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:19:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LHLZRSfNBA/PAOx3b2OQ39tegS6HiRU+g8NWkWzQNDM="
+        }
+      ]
+    },
+    {
+      "Route": "img/30kw.437mv9x3ez.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\30kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oB/wIzQrElqHFtUNVzD7OEEQdgtZGrPsTyb7zVFbqc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:09:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "437mv9x3ez"
+        },
+        {
+          "Name": "label",
+          "Value": "img/30kw.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-oB/wIzQrElqHFtUNVzD7OEEQdgtZGrPsTyb7zVFbqc4="
+        }
+      ]
+    },
+    {
+      "Route": "img/30kw.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\30kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270792"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"oB/wIzQrElqHFtUNVzD7OEEQdgtZGrPsTyb7zVFbqc4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:09:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-oB/wIzQrElqHFtUNVzD7OEEQdgtZGrPsTyb7zVFbqc4="
+        }
+      ]
+    },
+    {
+      "Route": "img/5kw.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\5kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "320025"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"j/BRls8YODIPumgJjBMqypmpm6OHEcKnfpIh8kJdvHc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:04:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-j/BRls8YODIPumgJjBMqypmpm6OHEcKnfpIh8kJdvHc="
+        }
+      ]
+    },
+    {
+      "Route": "img/5kw.rxptc70ral.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\5kw.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "320025"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"j/BRls8YODIPumgJjBMqypmpm6OHEcKnfpIh8kJdvHc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 24 May 2025 15:04:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rxptc70ral"
+        },
+        {
+          "Name": "label",
+          "Value": "img/5kw.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-j/BRls8YODIPumgJjBMqypmpm6OHEcKnfpIh8kJdvHc="
+        }
+      ]
+    },
+    {
+      "Route": "img/inverter.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\inverter.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VmyuTQyVq5Xb8YX0Bxy8xJPc7mtzx7AJz6fIYOKz8I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 15:15:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VmyuTQyVq5Xb8YX0Bxy8xJPc7mtzx7AJz6fIYOKz8I="
+        }
+      ]
+    },
+    {
+      "Route": "img/inverter.l8grzjmdrt.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\inverter.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VmyuTQyVq5Xb8YX0Bxy8xJPc7mtzx7AJz6fIYOKz8I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 19 May 2025 15:15:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "l8grzjmdrt"
+        },
+        {
+          "Name": "label",
+          "Value": "img/inverter.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VmyuTQyVq5Xb8YX0Bxy8xJPc7mtzx7AJz6fIYOKz8I="
+        }
+      ]
+    },
+    {
+      "Route": "js/navbar.30z88s24et.js",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\navbar.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "457"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M3vG7hozPl5ypaGuJ6ut5jLsr17h6pcfQbWlyXkoNUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 10:21:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "30z88s24et"
+        },
+        {
+          "Name": "label",
+          "Value": "js/navbar.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-M3vG7hozPl5ypaGuJ6ut5jLsr17h6pcfQbWlyXkoNUk="
+        }
+      ]
+    },
+    {
+      "Route": "js/navbar.js",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\navbar.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "457"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"M3vG7hozPl5ypaGuJ6ut5jLsr17h6pcfQbWlyXkoNUk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 10:21:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -616,50 +2261,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g="
-        }
-      ]
-    },
-    {
-      "Route": "FYP.BlazorUI.styles.css",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\bundle\\FYP.BlazorUI.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8195"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 04 May 2025 10:31:26 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-BMXzztFugxVA7qStpuPBy0afvq5tkgBY7ElIhbRi96g="
+          "Value": "sha256-M3vG7hozPl5ypaGuJ6ut5jLsr17h6pcfQbWlyXkoNUk="
         }
       ]
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -680,7 +2288,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 18:35:18 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -696,7 +2304,7 @@
     },
     {
       "Route": "js/site.ojjblwimer.js",
-      "AssetFile": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -717,7 +2325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 27 Apr 2025 18:35:18 GMT"
+          "Value": "Mon, 12 May 2025 06:01:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -736,6 +2344,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-THPGbHC3kA7IEI5AFWuQ55tDbY779K40MBX+BGIhK8o="
+        }
+      ]
+    },
+    {
+      "Route": "LOGO.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\LOGO.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60577"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xuiPQd9lnC9qNqMhlTxGm0Dq6A/5qTPFpdeAwYLgauI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 00:58:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-xuiPQd9lnC9qNqMhlTxGm0Dq6A/5qTPFpdeAwYLgauI="
+        }
+      ]
+    },
+    {
+      "Route": "LOGO.qbi0wra2dn.jpg",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\LOGO.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60577"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"xuiPQd9lnC9qNqMhlTxGm0Dq6A/5qTPFpdeAwYLgauI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 00:58:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qbi0wra2dn"
+        },
+        {
+          "Name": "label",
+          "Value": "LOGO.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-xuiPQd9lnC9qNqMhlTxGm0Dq6A/5qTPFpdeAwYLgauI="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/112f7ab0-51d0-48dc-a831-28c0b91ca563.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 11:13:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/112f7ab0-51d0-48dc-a831-28c0b91ca563.t2ftkaenk3.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\112f7ab0-51d0-48dc-a831-28c0b91ca563.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2154353"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 11:13:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t2ftkaenk3"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/112f7ab0-51d0-48dc-a831-28c0b91ca563.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-a3IVKwHGAmy2r2R6uYsprhwouoYMTGA5HatH6ARvPTo="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/b7c605ce-282d-4e33-8a8f-7657bb71455e.aa80n6zaev.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 10:49:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "aa80n6zaev"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/b7c605ce-282d-4e33-8a8f-7657bb71455e.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/b7c605ce-282d-4e33-8a8f-7657bb71455e.png",
+      "AssetFile": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\b7c605ce-282d-4e33-8a8f-7657bb71455e.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2247834"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 25 May 2025 10:49:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8iiFZiU9u7wi4hJ4RhgKZANux7sjLCl5fTE9YpzM8xc="
         }
       ]
     }

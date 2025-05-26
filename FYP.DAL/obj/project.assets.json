@@ -2803,11 +2803,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.DAL\\FYP.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.DAL\\FYP.DAL.csproj",
       "projectName": "FYP.DAL",
-      "projectPath": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.DAL\\FYP.DAL.csproj",
+      "projectPath": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.DAL\\FYP.DAL.csproj",
       "packagesPath": "C:\\Users\\alixh\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.DAL\\obj\\",
+      "outputPath": "C:\\Users\\alixh\\Downloads\\Compressed\\mondaytest\\test\\FYP\\FYP.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,0 +1,838 @@
+﻿@inject NavigationManager Navigation
+@implements IDisposable
+
+<div class="slider-section">
+    <div class="background-overlay"></div>
+    <div class="animated-bg"></div>
+
+    <h2 class="slider-title">
+        <span class="title-accent">Our</span> Services
+        <div class="title-underline"></div>
+    </h2>
+
+    <div class="slider-wrapper">
+        <div class="slider-track" style="transform: translateX(-@(CurrentIndex * 100)%)">
+            @foreach (var service in Services)
+            {
+                <div class="slide">
+                    <div class="card" @onmouseenter="PauseAutoPlay" @onmouseleave="ResumeAutoPlay">
+                        <div class="card-img-wrapper">
+                            <img src="@service.ImageUrl" alt="@service.Title" class="card-img" />
+                            <div class="card-overlay"></div>
+                            <div class="card-icon">
+                                <i class="@service.Icon"></i>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h3>@service.Title</h3>
+                            <p>@service.Description</p>
+                            <div class="card-features">
+                                @foreach (var feature in service.Features)
+                                {
+                                    <span class="feature-tag">@feature</span>
+                                }
+                            </div>
+                            <button @onclick="() => NavigateTo(service.Link)" class="explore-btn">
+                                <span>Explore</span>
+                                <i class="arrow">→</i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <button class="nav left" @onclick="PreviousSlide" disabled="@(CurrentIndex == 0)">
+            <i class="nav-icon">‹</i>
+        </button>
+        <button class="nav right" @onclick="NextSlide" disabled="@(CurrentIndex >= Services.Count - 1)">
+            <i class="nav-icon">›</i>
+        </button>
+
+        <div class="controls">
+            <div class="dots">
+                @for (int i = 0; i < Services.Count; i++)
+                {
+                    int index = i;
+                    <button class="dot @(CurrentIndex == index ? "active" : "")" @onclick="() => GoToSlide(index)" aria-label="Go to slide @(index + 1)">
+                        <span class="dot-inner"></span>
+                    </button>
+                }
+            </div>
+
+            <div class="auto-play-controls">
+                <button class="play-pause-btn" @onclick="ToggleAutoPlay" title="@(IsAutoPlayActive ? "Pause" : "Play")">
+                    <i class="@(IsAutoPlayActive ? "pause-icon" : "play-icon")">@(IsAutoPlayActive ? "⏸" : "▶")</i>
+                </button>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: @ProgressPercentage%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .slider-section {
+        padding: 2rem 0 3rem; /* Significantly reduced padding from 4rem 0 8rem */
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        color: #e2e8f0;
+        position: relative;
+        overflow: hidden;
+        min-height: 650px; /* Reduced from 900px */
+    }
+
+    .background-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 20% 80%, rgba(34, 211, 238, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.15) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.05) 0%, transparent 70%);
+        pointer-events: none;
+    }
+
+    .animated-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, transparent 48%, rgba(34, 211, 238, 0.03) 50%, transparent 52%), linear-gradient(-45deg, transparent 48%, rgba(168, 85, 247, 0.03) 50%, transparent 52%);
+        background-size: 60px 60px;
+        animation: moveBackground 20s linear infinite;
+        pointer-events: none;
+    }
+
+    @@keyframes moveBackground {
+        0%
+
+    {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(60px, 60px);
+    }
+
+    }
+
+    .slider-title {
+        text-align: center;
+        font-size: 2.8rem; /* Reduced from 3.5rem */
+        margin-bottom: 2rem; /* Reduced from 3rem */
+        font-weight: 800;
+        color: #e2e8f0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .title-accent {
+        background: linear-gradient(135deg, #22d3ee, #a855f7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .title-underline {
+        width: 100px;
+        height: 5px;
+        background: linear-gradient(90deg, #22d3ee, #a855f7);
+        margin: 1rem auto 0;
+        border-radius: 3px;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    @@keyframes pulse {
+        0%, 100%
+
+    {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scaleX(1.3);
+        opacity: 0.8;
+    }
+
+    }
+
+    .slider-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 4rem 1rem; /* Reduced bottom padding from 2rem to 1rem */
+        position: relative;
+        z-index: 2;
+    }
+
+    .slider-track {
+        display: flex;
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        overflow: visible;
+    }
+
+    .slide {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0; /* Reduced from 2rem 0 */
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        height: 450px; /* Reduced from 580px */
+        width: 100%;
+        max-width: 400px; /* Reduced from 480px */
+        display: flex;
+        flex-direction: column;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        position: relative;
+    }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(168, 85, 247, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            border-radius: 25px;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(34, 211, 238, 0.4), 0 0 40px rgba(34, 211, 238, 0.2);
+        }
+
+    .card-img-wrapper {
+        position: relative;
+        height: 200px; /* Reduced from 280px */
+        overflow: hidden;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.8s ease;
+    }
+
+    .card:hover .card-img {
+        transform: scale(1.1);
+    }
+
+    .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, rgba(15, 23, 42, 0.3) 50%, rgba(15, 23, 42, 0.9) 100%);
+        transition: opacity 0.3s ease;
+    }
+
+    .card:hover .card-overlay {
+        opacity: 0.7;
+    }
+
+    .card-icon {
+        position: absolute;
+        top: 1rem; /* Reduced from 1.5rem */
+        right: 1rem; /* Reduced from 1.5rem */
+        width: 50px; /* Reduced from 60px */
+        height: 50px; /* Reduced from 60px */
+        background: rgba(34, 211, 238, 0.15);
+        border-radius: 12px; /* Reduced from 15px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.6rem; /* Reduced from 2rem */
+        color: #22d3ee;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 20px rgba(34, 211, 238, 0.2);
+    }
+
+    .card:hover .card-icon {
+        background: rgba(34, 211, 238, 0.25);
+        transform: scale(1.15) rotate(5deg);
+        box-shadow: 0 8px 30px rgba(34, 211, 238, 0.4);
+    }
+
+    .card-body {
+        padding: 1.5rem; /* Reduced from 2rem */
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        background: rgba(15, 23, 42, 0.95);
+        position: relative;
+    }
+
+        .card-body h3 {
+            color: #22d3ee;
+            font-size: 1.5rem; /* Reduced from 1.8rem */
+            margin-bottom: 0.8rem; /* Reduced from 1rem */
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(34, 211, 238, 0.3);
+        }
+
+        .card-body p {
+            color: #94a3b8;
+            font-size: 0.9rem; /* Reduced from 1rem */
+            line-height: 1.5; /* Reduced from 1.6 */
+            margin-bottom: 1rem; /* Reduced from 1.5rem */
+            flex-grow: 1;
+        }
+
+    .card-features {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem; /* Reduced from 0.6rem */
+        margin-bottom: 1rem; /* Reduced from 1.5rem */
+    }
+
+    .feature-tag {
+        background: rgba(34, 211, 238, 0.15);
+        color: #22d3ee;
+        padding: 0.3rem 0.6rem; /* Reduced from 0.4rem 0.8rem */
+        border-radius: 15px; /* Reduced from 20px */
+        font-size: 0.75rem; /* Reduced from 0.85rem */
+        font-weight: 600;
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+        .feature-tag:hover {
+            background: rgba(34, 211, 238, 0.25);
+            transform: translateY(-2px);
+        }
+
+    .explore-btn {
+        background: linear-gradient(135deg, #22d3ee, #06b6d4);
+        color: #0f172a;
+        border: none;
+        padding: 0.6rem 1.5rem; /* Reduced from 0.8rem 2rem */
+        border-radius: 25px; /* Reduced from 30px */
+        font-weight: 700;
+        font-size: 0.9rem; /* Reduced from 1rem */
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        align-self: flex-start;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem; /* Reduced from 0.8rem */
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(34, 211, 238, 0.3);
+    }
+
+        .explore-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .explore-btn:hover::before {
+            left: 100%;
+        }
+
+        .explore-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(34, 211, 238, 0.5);
+        }
+
+    .arrow {
+        transition: transform 0.3s ease;
+        font-size: 1rem; /* Reduced from 1.1rem */
+    }
+
+    .explore-btn:hover .arrow {
+        transform: translateX(8px);
+    }
+
+    .nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(34, 211, 238, 0.15);
+        color: #22d3ee;
+        width: 50px; /* Reduced from 60px */
+        height: 50px; /* Reduced from 60px */
+        border-radius: 50%;
+        border: 2px solid rgba(34, 211, 238, 0.3);
+        font-size: 2rem; /* Reduced from 2.5rem */
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(15px);
+        z-index: 3;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+        .nav:hover:not(:disabled) {
+            background: rgba(34, 211, 238, 0.25);
+            border-color: #22d3ee;
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .nav.left {
+            left: 0;
+        }
+
+        .nav.right {
+            right: 0;
+        }
+
+    .nav-icon {
+        font-size: 2rem; /* Reduced from 2.5rem */
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2rem; /* Reduced from 4rem */
+        padding: 0 1rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .dots {
+        display: flex;
+        gap: 15px;
+    }
+
+    .dot {
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        border: 2px solid #94a3b8;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .dot-inner {
+        width: 8px;
+        height: 8px;
+        background: #94a3b8;
+        border-radius: 50%;
+        transition: all 0.4s ease;
+        opacity: 0;
+    }
+
+    .dot.active {
+        border-color: #22d3ee;
+        transform: scale(1.4);
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.5);
+    }
+
+        .dot.active .dot-inner {
+            background: #22d3ee;
+            opacity: 1;
+        }
+
+    .dot:hover:not(.active) {
+        border-color: #6b7280;
+        transform: scale(1.2);
+    }
+
+    .auto-play-controls {
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+    }
+
+    .play-pause-btn {
+        background: rgba(34, 211, 238, 0.15);
+        color: #22d3ee;
+        border: 1px solid rgba(34, 211, 238, 0.3);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+    }
+
+        .play-pause-btn:hover {
+            background: rgba(34, 211, 238, 0.25);
+            transform: scale(1.15);
+        }
+
+    .progress-bar {
+        width: 120px;
+        height: 5px;
+        background: rgba(148, 163, 184, 0.3);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #22d3ee, #06b6d4);
+        border-radius: 3px;
+        transition: width 0.1s linear;
+    }
+
+    /* Tablet Styles */
+    @@media (max-width: 1024px) {
+        .slider-section
+
+    {
+        min-height: 600px; /* Reduced from 850px */
+        padding: 3rem 0 5rem; /* Reduced padding */
+    }
+
+    .slider-wrapper {
+        max-width: 900px;
+        padding: 0 3rem;
+    }
+
+    .card {
+        height: 420px; /* Reduced from 540px */
+        max-width: 380px; /* Reduced from 450px */
+    }
+
+    .card-img-wrapper {
+        height: 180px; /* Reduced from 260px */
+    }
+
+    .nav {
+        width: 45px;
+        height: 45px;
+        font-size: 1.8rem;
+    }
+
+    .nav-icon {
+        font-size: 1.8rem;
+    }
+
+    }
+
+    /* Mobile Styles */
+    @@media (max-width: 768px) {
+        .slider-section
+
+    {
+        padding: 1.5rem 0 4rem; /* Reduced padding */
+        min-height: 550px; /* Reduced from 800px */
+    }
+
+    .slider-title {
+        font-size: 2.2rem; /* Reduced from 2.5rem */
+        margin-bottom: 1.5rem; /* Reduced from 2rem */
+    }
+
+    .slider-wrapper {
+        max-width: 100%;
+        padding: 0 2rem;
+    }
+
+    .slide {
+        padding: 0.5rem 0; /* Reduced from 1rem 0 */
+    }
+
+    .card {
+        height: 380px; /* Reduced from 490px */
+        max-width: 100%;
+    }
+
+    .card-img-wrapper {
+        height: 160px; /* Reduced from 220px */
+    }
+
+    .card-body {
+        padding: 1.2rem; /* Reduced from 1.5rem 1.2rem */
+    }
+
+        .card-body h3 {
+            font-size: 1.3rem; /* Reduced from 1.5rem */
+        }
+
+        .card-body p {
+            font-size: 0.85rem; /* Reduced from 0.95rem */
+        }
+
+    .nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1.6rem;
+    }
+
+    .nav-icon {
+        font-size: 1.6rem;
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 1.5rem; /* Reduced from 2rem */
+        margin-top: 2rem; /* Reduced from 3rem */
+    }
+
+    .auto-play-controls {
+        order: -1;
+    }
+
+    }
+
+    /* Small Mobile Styles */
+    @@media (max-width: 480px) {
+        .slider-section
+
+    {
+        padding: 1rem 0 3rem; /* Reduced padding */
+        min-height: 500px; /* Reduced from 750px */
+    }
+
+    .slider-wrapper {
+        padding: 0 1rem;
+    }
+
+    .card {
+        height: 350px; /* Reduced from 450px */
+    }
+
+    .card-img-wrapper {
+        height: 140px; /* Reduced from 200px */
+    }
+
+    .card-body {
+        padding: 1rem; /* Reduced from 1.2rem 0.8rem */
+    }
+
+        .card-body h3 {
+            font-size: 1.2rem; /* Reduced from 1.3rem */
+        }
+
+    .feature-tag {
+        font-size: 0.7rem; /* Reduced from 0.75rem */
+        padding: 0.25rem 0.5rem; /* Reduced from 0.3rem 0.6rem */
+    }
+
+    .explore-btn {
+        padding: 0.5rem 1.5rem; /* Reduced from 0.7rem 1.8rem */
+        font-size: 0.85rem; /* Reduced from 0.95rem */
+    }
+
+    .nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1.4rem;
+    }
+
+    .nav-icon {
+        font-size: 1.4rem;
+    }
+
+    }
+</style>
+
+@code {
+    private int CurrentIndex = 0;
+    private Timer? AutoPlayTimer;
+    private Timer? ProgressTimer;
+    private bool IsAutoPlayActive = true;
+    private bool IsAutoPlayPaused = false;
+    private int AutoPlayInterval = 5000; // 5 seconds for better viewing
+    private int ProgressInterval = 50; // 50ms for smooth progress
+    private double ProgressPercentage = 0;
+
+    private List<Service> Services = new()
+    {
+        new Service
+        {
+            Title = "Solar Solutions",
+            Description = "Sustainable solar panel installations for homes and businesses with cutting-edge technology and exceptional efficiency.",
+            ImageUrl = "/image3.png",
+            Link = "/create-project",
+            Icon = "☀️",
+            Features = new() { "Eco-Friendly", "Cost-Effective", "24/7 Support" }
+        },
+        new Service
+        {
+            Title = "Electrical Services",
+            Description = "Expert installations, upgrades, and electrical troubleshooting for residential and commercial properties with licensed professionals.",
+            ImageUrl = "/image2.png",
+            Link = "/create-project",
+            Icon = "⚡",
+            Features = new() { "Licensed", "Emergency Service", "Warranty" }
+        },
+        new Service
+        {
+            Title = "Maintenance & Repairs",
+            Description = "Fast, reliable repair and maintenance services for all electrical and solar systems with guaranteed satisfaction.",
+            ImageUrl = "/image1.png",
+            Link = "/create-project",
+            Icon = "🔧",
+            Features = new() { "Quick Response", "Quality Parts", "Satisfaction Guaranteed" }
+        }
+    };
+
+    protected override void OnInitialized()
+    {
+        StartAutoPlay();
+    }
+
+    private void StartAutoPlay()
+    {
+        if (IsAutoPlayActive && !IsAutoPlayPaused)
+        {
+            AutoPlayTimer?.Dispose();
+            ProgressTimer?.Dispose();
+
+            ProgressPercentage = 0;
+
+            ProgressTimer = new Timer(UpdateProgress, null, 0, ProgressInterval);
+            AutoPlayTimer = new Timer(AutoAdvance, null, AutoPlayInterval, AutoPlayInterval);
+        }
+    }
+
+    private void UpdateProgress(object? state)
+    {
+        if (!IsAutoPlayActive || IsAutoPlayPaused) return;
+
+        InvokeAsync(() =>
+        {
+            ProgressPercentage += (double)ProgressInterval / AutoPlayInterval * 100;
+            if (ProgressPercentage >= 100)
+            {
+                ProgressPercentage = 0;
+            }
+            StateHasChanged();
+        });
+    }
+
+    private void AutoAdvance(object? state)
+    {
+        if (!IsAutoPlayActive || IsAutoPlayPaused) return;
+
+        InvokeAsync(() =>
+        {
+            NextSlide();
+            ProgressPercentage = 0;
+            StateHasChanged();
+        });
+    }
+
+    private void NextSlide()
+    {
+        CurrentIndex = CurrentIndex >= Services.Count - 1 ? 0 : CurrentIndex + 1;
+        RestartAutoPlay();
+    }
+
+    private void PreviousSlide()
+    {
+        CurrentIndex = CurrentIndex <= 0 ? Services.Count - 1 : CurrentIndex - 1;
+        RestartAutoPlay();
+    }
+
+    private void GoToSlide(int index)
+    {
+        if (index >= 0 && index < Services.Count)
+        {
+            CurrentIndex = index;
+            RestartAutoPlay();
+        }
+    }
+
+    private void RestartAutoPlay()
+    {
+        if (IsAutoPlayActive && !IsAutoPlayPaused)
+        {
+            StartAutoPlay();
+        }
+    }
+
+    private void ToggleAutoPlay()
+    {
+        IsAutoPlayActive = !IsAutoPlayActive;
+        if (IsAutoPlayActive)
+        {
+            StartAutoPlay();
+        }
+        else
+        {
+            AutoPlayTimer?.Dispose();
+            ProgressTimer?.Dispose();
+            ProgressPercentage = 0;
+        }
+    }
+
+    private void PauseAutoPlay()
+    {
+        IsAutoPlayPaused = true;
+        AutoPlayTimer?.Dispose();
+        ProgressTimer?.Dispose();
+    }
+
+    private void ResumeAutoPlay()
+    {
+        IsAutoPlayPaused = false;
+        if (IsAutoPlayActive)
+        {
+            StartAutoPlay();
+        }
+    }
+
+    private void NavigateTo(string url) => Navigation.NavigateTo(url);
+
+    public void Dispose()
+    {
+        AutoPlayTimer?.Dispose();
+        ProgressTimer?.Dispose();
+    }
+
+    public class Service
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+        public string Link { get; set; } = string.Empty;
+        public string Icon { get; set; } = string.Empty;
+        public List<string> Features { get; set; } = new();
+    }
+}
