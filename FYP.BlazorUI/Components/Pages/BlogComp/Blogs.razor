@@ -1,0 +1,57 @@
+﻿@page "/blogs"
+@using FYP.DAL.Entities
+@inject IBlogService BlogService
+
+<style>
+    .blogs-container {
+        background-color: #000;
+        color: #fff;
+        min-height: 100vh;
+        padding: 2rem;
+    }
+
+    .header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-custom {
+        background-color: #6b46c1;
+        border-color: #6b46c1;
+        color: white !important;
+    }
+
+        .btn-custom:hover {
+            background-color: #805ad5;
+            border-color: #805ad5;
+        }
+</style>
+
+<div class="blogs-container">
+    <div class="header-bar">
+        <h3>All Blogs</h3>
+        <NavLink class="btn btn-custom" href="/blogs/edit">Post a Blog</NavLink>
+    </div>
+
+    <div class="d-flex flex-wrap gap-3">
+        @if (blogs is null)
+        {
+            <p class="text-light"><em>Loading…</em></p>
+        }
+        else
+        {
+            @foreach (var b in blogs)
+            {
+                <BlogCard Blog="b" />
+            }
+        }
+    </div>
+</div>
+
+@code {
+    private List<Blog> blogs;
+    protected override async Task OnInitializedAsync() =>
+        blogs = await BlogService.GetAllAsync();
+}

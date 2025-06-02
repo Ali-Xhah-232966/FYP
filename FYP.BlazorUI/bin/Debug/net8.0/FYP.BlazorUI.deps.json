@@ -11,6 +11,7 @@
           "FYP.BLL": "1.0.0",
           "FYP.DAL": "1.0.0",
           "Microsoft.AspNetCore.Antiforgery": "2.3.0",
+          "Microsoft.AspNetCore.Components.Authorization": "8.0.16",
           "Microsoft.AspNetCore.Components.Web": "8.0.11",
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.Sqlite": "9.0.4",
@@ -72,35 +73,55 @@
           "Microsoft.Extensions.ObjectPool": "8.0.11"
         }
       },
-      "Microsoft.AspNetCore.Authorization/8.0.11": {
+      "Microsoft.AspNetCore.Authentication.Google/8.0.16": {
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "8.0.16.0",
+            "fileVersion": "8.0.1625.21611"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authorization/8.0.16": {
         "dependencies": {
-          "Microsoft.AspNetCore.Metadata": "8.0.11",
+          "Microsoft.AspNetCore.Metadata": "8.0.16",
           "Microsoft.Extensions.Logging.Abstractions": "9.0.4",
           "Microsoft.Extensions.Options": "9.0.4"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Authorization.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1124.52116"
+            "fileVersion": "8.0.1625.21611"
           }
         }
       },
-      "Microsoft.AspNetCore.Components/8.0.11": {
+      "Microsoft.AspNetCore.Components/8.0.16": {
         "dependencies": {
-          "Microsoft.AspNetCore.Authorization": "8.0.11",
-          "Microsoft.AspNetCore.Components.Analyzers": "8.0.11"
+          "Microsoft.AspNetCore.Authorization": "8.0.16",
+          "Microsoft.AspNetCore.Components.Analyzers": "8.0.16"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Components.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1124.52116"
+            "fileVersion": "8.0.1625.21611"
           }
         }
       },
-      "Microsoft.AspNetCore.Components.Analyzers/8.0.11": {},
+      "Microsoft.AspNetCore.Components.Analyzers/8.0.16": {},
+      "Microsoft.AspNetCore.Components.Authorization/8.0.16": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "8.0.16",
+          "Microsoft.AspNetCore.Components": "8.0.16"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Components.Authorization.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.1625.21611"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/8.0.11": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.11"
+          "Microsoft.AspNetCore.Components": "8.0.16"
         },
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Components.Forms.dll": {
@@ -111,7 +132,7 @@
       },
       "Microsoft.AspNetCore.Components.Web/8.0.11": {
         "dependencies": {
-          "Microsoft.AspNetCore.Components": "8.0.11",
+          "Microsoft.AspNetCore.Components": "8.0.16",
           "Microsoft.AspNetCore.Components.Forms": "8.0.11",
           "Microsoft.Extensions.DependencyInjection": "9.0.4",
           "Microsoft.Extensions.Primitives": "9.0.4",
@@ -172,11 +193,11 @@
           "Microsoft.Extensions.Primitives": "9.0.4"
         }
       },
-      "Microsoft.AspNetCore.Metadata/8.0.11": {
+      "Microsoft.AspNetCore.Metadata/8.0.16": {
         "runtime": {
           "lib/net8.0/Microsoft.AspNetCore.Metadata.dll": {
             "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.1124.52116"
+            "fileVersion": "8.0.1625.21611"
           }
         }
       },
@@ -1443,19 +1464,20 @@
         },
         "runtime": {
           "FYP.BLL.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
       "FYP.DAL/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.16",
           "Microsoft.EntityFrameworkCore": "9.0.4",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.4"
         },
         "runtime": {
           "FYP.DAL.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -1496,26 +1518,40 @@
       "path": "microsoft.aspnetcore.antiforgery/2.3.0",
       "hashPath": "microsoft.aspnetcore.antiforgery.2.3.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Authorization/8.0.11": {
+    "Microsoft.AspNetCore.Authentication.Google/8.0.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ACaLyjBSz9WUzbaJe0Sv09/FihRNHYlRUIj3uQ8CZFFByf6Qwv3+PXnbltidFKz2iOyqdvppQias3emdQUY2nA==",
-      "path": "microsoft.aspnetcore.authorization/8.0.11",
-      "hashPath": "microsoft.aspnetcore.authorization.8.0.11.nupkg.sha512"
+      "sha512": "sha512-X4jGB9ebljVss21KqEgDZkHENMFw3gFKBWpnPcNtCvGbOqncO0HZG1yZE8rSwPS449HVoyv+2STs/MJqrw8nJQ==",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.16",
+      "hashPath": "microsoft.aspnetcore.authentication.google.8.0.16.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components/8.0.11": {
+    "Microsoft.AspNetCore.Authorization/8.0.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kyhSQcVEQvMnv2BNRn7JRgYCr+PIO5Uh1mhIFdCNycxE/k8NsI72sV693s1KVmVebMA8g3hTBmfBEheWb3hhww==",
-      "path": "microsoft.aspnetcore.components/8.0.11",
-      "hashPath": "microsoft.aspnetcore.components.8.0.11.nupkg.sha512"
+      "sha512": "sha512-4msfwr7vdFQgQdmN54kqeY01GRG99sw2gTC8eWQ1eRxq6oOGNmGY0wIl9vk3xZN6CdIdXq2hwFSYGw2frfHLOw==",
+      "path": "microsoft.aspnetcore.authorization/8.0.16",
+      "hashPath": "microsoft.aspnetcore.authorization.8.0.16.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Components.Analyzers/8.0.11": {
+    "Microsoft.AspNetCore.Components/8.0.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4JtFt5IR0ixuFpwY6D2Xi5R+vZQ6iykd2EuG3puHETCOZOgYG8M538LCY1lbgQTkHOL04YKDjQTQu8PU/BaXRQ==",
-      "path": "microsoft.aspnetcore.components.analyzers/8.0.11",
-      "hashPath": "microsoft.aspnetcore.components.analyzers.8.0.11.nupkg.sha512"
+      "sha512": "sha512-53foNz+R1KAe404RgmLxjpcqORZM23NLsS5Qe8zIIt02ThMPCa9IWC9WULwTr60g6kcTt1HUnExhrnvsVCl0SQ==",
+      "path": "microsoft.aspnetcore.components/8.0.16",
+      "hashPath": "microsoft.aspnetcore.components.8.0.16.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Analyzers/8.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-now9Taa3SMu7nWKe1sLExn86AVgo1NZej5u759UMvR74/OWzvDy2aN+uQE7twYW1mHTtR5ILjE7cX4L5WSm2Pg==",
+      "path": "microsoft.aspnetcore.components.analyzers/8.0.16",
+      "hashPath": "microsoft.aspnetcore.components.analyzers.8.0.16.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Components.Authorization/8.0.16": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TsVr6Iwp2rxNzUmAiAY7+fCoxxQTfa5KuACBnucNcLnHpfc/BUiJS6v2mkr7inRmtb4zkTCJSJNlOCoqzILFwA==",
+      "path": "microsoft.aspnetcore.components.authorization/8.0.16",
+      "hashPath": "microsoft.aspnetcore.components.authorization.8.0.16.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Components.Forms/8.0.11": {
       "type": "package",
@@ -1587,12 +1623,12 @@
       "path": "microsoft.aspnetcore.http.features/2.3.0",
       "hashPath": "microsoft.aspnetcore.http.features.2.3.0.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Metadata/8.0.11": {
+    "Microsoft.AspNetCore.Metadata/8.0.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cy04xnMSTXTkRPjEwseRz57R5zjR/CWsdEOHH6NhWbNl97k+U1w6dSjqIOC7kv08tyzmM30FzIilSDtE5HdL/A==",
-      "path": "microsoft.aspnetcore.metadata/8.0.11",
-      "hashPath": "microsoft.aspnetcore.metadata.8.0.11.nupkg.sha512"
+      "sha512": "sha512-sgavJHc/BLiGxFiw2frEoFZld+FXDQLyvS+3bzofSD1l2RXe6xkFpcWn1BFxJVqGq5w30hzdkwCbKYYTXax7OA==",
+      "path": "microsoft.aspnetcore.metadata/8.0.16",
+      "hashPath": "microsoft.aspnetcore.metadata.8.0.16.nupkg.sha512"
     },
     "Microsoft.AspNetCore.WebUtilities/2.3.0": {
       "type": "package",

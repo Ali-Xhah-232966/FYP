@@ -1,0 +1,93 @@
+﻿@page "/userdashboard"
+@inject IUserService UserService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<h2>User Dashboard</h2>
+
+@if (user == null)
+{
+    <p>Loading user info...</p>
+}
+else
+{
+    <div class="card p-3">
+        <h4>@user.ContactName</h4>
+        <p>Email: @user.ContactEmail</p>
+        <p>Role: User</p> <!-- Adjust if you have a role -->
+    </div>
+
+    <h5 class="mt-4">Your Project Submissions</h5>
+
+    @if (userSubmissions.Count == 0)
+    {
+        <p>No submissions found.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Service Type</th>
+                        <th>Address</th>
+                        <th>Booking Date</th>
+                        <th>KW Size</th>
+                        <th>Project Type</th>
+                        <th>Selected Services</th>
+                        <th>Contact Name</th>
+                        <th>Contact Email</th>
+                        <th>Contact Phone</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var submission in userSubmissions)
+                    {
+                        <tr>
+                            <td>@submission.ServiceType</td>
+                            <td>@submission.Address</td>
+                            <td>@submission.BookingDate.ToShortDateString()</td>
+                            <td>
+                                @(submission.ServiceType == ServiceType.Solar ? $"{submission.KwSize} kW" : "-")
+                            </td>
+                            <td>
+                                @(submission.ServiceType == ServiceType.Electrical || submission.ServiceType == ServiceType.Repair
+                                    ? submission.ProjectType?.ToString()
+                                    : "-")
+                            </td>
+                            <td>
+                                @(submission.ServiceType == ServiceType.Electrical || submission.ServiceType == ServiceType.Repair
+                                    ? string.Join(", ", submission.SelectedServices ?? new List<string>())
+                                    : "-")
+                            </td>
+                            <td>@submission.ContactName</td>
+                            <td>@submission.ContactEmail</td>
+                            <td>@submission.ContactPhone</td>
+                            <td>@submission.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+}
+
+@code {
+    private ProjectSubmission? user;
+    private List<ProjectSubmission> userSubmissions = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+
+        // Try common email claim types (adjust if your provider uses different claim names)
+        var email = authState.User.FindFirst(c => c.Type == "email")?.Value
+                    ?? authState.User.FindFirst(c => c.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress")?.Value;
+
+        if (!string.IsNullOrEmpty(email))
+        {
+            userSubmissions = await UserService.GetUserSubmissionsAsync(email);
+            user = userSubmissions.FirstOrDefault(sub => sub.ContactEmail == email);
+        }
+    }
+}

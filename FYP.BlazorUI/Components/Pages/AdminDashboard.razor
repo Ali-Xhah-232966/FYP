@@ -1,0 +1,137 @@
+﻿@page "/admindashboard"
+@using FYP.DAL.Entities
+@using FYP.BLL.Interfaces
+@rendermode InteractiveServer
+@inject IAdminDashboardService AdminService
+
+<div class="dashboard-container">
+    <h2 class="mb-4 main">👨‍💼 Admin Dashboard</h2>
+
+    <!-- Admin Bio Section -->
+    <div class="card admin-profile-card">
+        <h4>Admin Profile</h4>
+        @if (CurrentAdmin != null)
+        {
+            <div class="profile-info">
+                <div class="info-item">
+                    <span class="info-label">Name</span>
+                    <span class="info-value">@CurrentAdmin.Name</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email</span>
+                    <span class="info-value">@CurrentAdmin.Email</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Role</span>
+                    <span class="info-value">@CurrentAdmin.Role</span>
+                </div>
+            </div>
+        }
+        else
+        {
+            <p class="loading">Loading profile...</p>
+        }
+    </div>
+
+    <!-- Contact Us Messages Table -->
+    <div class="card table-card">
+        <h4>📩 Contact Us Messages</h4>
+        <table class="contact-messages-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Submitted At</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in ContactMessages)
+                {
+                    <tr>
+                        <td class="id-column">@message.Id</td>
+                        <td class="name-column">@message.Name</td>
+                        <td class="email-column">@message.Email</td>
+                        <td class="phone-column">@message.PhoneNumber</td>
+                        <td class="message-column">@message.Message</td>
+                        <td class="date-column">@message.SubmittedAt.ToLocalTime().ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!ContactMessages.Any())
+        {
+            <div class="empty-state">
+                <p>No contact messages found.</p>
+            </div>
+        }
+    </div>
+
+    <!-- Project Submissions Table -->
+    <div class="card table-card">
+        <div class="header">
+            <h1 class="heading">Project Submission</h1>
+            <a href="/project-submissions" class="navlink">Update Project</a>
+        </div>
+
+        <table class="project-submissions-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Type</th>
+                    <th>Project Type</th>
+                    <th>KW Size</th>
+                    <th>Selected Services</th>
+                    <th>Address</th>
+                    <th>Contact Name</th>
+                    <th>Contact Email</th>
+                    <th>Contact Phone</th>
+                    <th>Status</th>
+                    <th>Booking Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in ProjectSubmissions)
+                {
+                    <tr>
+                        <td class="id-column">@project.Id</td>
+                        <td class="service-type-column">@project.ServiceType</td>
+                        <td class="project-type-column">@project.ProjectType</td>
+                        <td class="kw-size-column">@project.KwSize?.ToString("0.##")</td>
+                        <td class="services-column">@string.Join(", ", project.SelectedServices)</td>
+                        <td class="address-column">@project.Address</td>
+                        <td class="contact-name-column">@project.ContactName</td>
+                        <td class="email-column">@project.ContactEmail</td>
+                        <td class="phone-column">@project.ContactPhone</td>
+                        <td class="status-column status-@project.Status.ToLower().Replace(" ", "-")">@project.Status</td>
+                        <td class="date-column">@project.BookingDate.ToLocalTime().ToString("g")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (!ProjectSubmissions.Any())
+        {
+            <div class="empty-state">
+                <p>No project submissions found.</p>
+            </div>
+        }
+    </div>
+</div>
+
+
+@code {
+    private AppUser? CurrentAdmin;
+    private List<DAL.Entities.ContactUs> ContactMessages = new();
+    private List<ProjectSubmission> ProjectSubmissions = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        CurrentAdmin = await AdminService.GetAdminProfileAsync();
+        ContactMessages = await AdminService.GetAllContactMessagesAsync();
+        ProjectSubmissions = await AdminService.GetAllProjectSubmissionsAsync();
+    }
+}

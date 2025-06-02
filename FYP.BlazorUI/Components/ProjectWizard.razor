@@ -1,445 +1,895 @@
 ﻿@page "/create-project"
 @using FYP.DAL.Entities
 @using FYP.BLL.Interfaces
+@using System.Linq
 @rendermode InteractiveServer
 @inject IProjectService ProjectService
 @inject NavigationManager Navigation
-
 <style>
-    @@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-    @@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
-
+    /* Base Styling */
     body {
         font-family: 'Poppins', sans-serif;
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         min-height: 100vh;
+        padding: 2rem 0;
+        color: #2c3e50;
     }
 
-    .service-cards {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-        padding: 2rem;
+    /* Color Variables */
+    :root {
+        --primary-blue: #2196F3;
+        --hover-blue: #1976D2;
+        --accent-blue: #64B5F6;
+        --card-white: rgba(255, 255, 255, 0.25);
+        --input-bg: rgba(255, 255, 255, 0.9);
     }
 
-        .service-cards .card {
-            background: rgba(128, 128, 128, 0.1) !important;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-            .service-cards .card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-                background: rgba(128, 128, 128, 0.2) !important;
-            }
-
-            .service-cards .card.active {
-                border: 2px solid #4CAF50;
-                background: rgba(76, 175, 80, 0.1) !important;
-            }
-
-            .service-cards .card i {
-                font-size: 3rem;
-                margin-bottom: 1rem;
-                color: #4CAF50;
-            }
-
-    /* Enhanced Containers */
-    .service-details,
-    .contact-info {
-        max-width: 600px;
-        margin: 0 auto 2rem;
-        padding: 2rem;
-        background: rgba(128, 128, 128, 0.1) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 15px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* Main Container */
+    .main-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
     }
 
-    /* Form Elements */
-    .form-control {
-        border-radius: 8px;
-        padding: 12px 20px;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        transition: all 0.3s ease;
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(5px);
+    /* Header Section */
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem 0;
     }
 
-        .form-control:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
-        }
+    .page-title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-bottom: 0.5rem;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
 
-    /* Checkbox Cards */
-    .service-option {
-        padding: 1.2rem;
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        border-radius: 12px;
-        margin-bottom: 1rem;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        background: rgba(255, 255, 255, 0.8) !important;
-        backdrop-filter: blur(5px);
-        cursor: pointer;
+    .page-subtitle {
+        font-size: 1.2rem;
+        color: #64748b;
+        font-weight: 400;
+    }
+
+    /* Step Progress Indicator */
+    .step-progress {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 3rem;
+        padding: 0 2rem;
+    }
+
+    .step-item {
         display: flex;
         align-items: center;
-        gap: 1rem;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        position: relative;
+        flex: 1;
+        max-width: 200px;
     }
 
-        .service-option:hover {
-            transform: translateY(-3px);
-            border-color: #4CAF50;
-            box-shadow: 0 6px 12px rgba(76, 175, 80, 0.1);
-        }
-
-        .service-option.selected {
-            border-color: #4CAF50;
-            background: rgba(76, 175, 80, 0.15) !important;
-            box-shadow: 0 4px 6px rgba(76, 175, 80, 0.1);
-        }
-
-        .service-option .form-check-input {
-            margin: 0;
-            width: 1.3em;
-            height: 1.3em;
-            border: 2px solid #ccc;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-            .service-option .form-check-input:checked {
-                background-color: #4CAF50;
-                border-color: #45a049;
-                background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");
-            }
-
-    /* Enhanced Dropdown */
-    .select-wrapper {
+    .step-circle {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        background: rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(33, 150, 243, 0.3);
+        color: #64748b;
+        transition: all 0.3s ease;
+        z-index: 2;
         position: relative;
     }
 
-        .select-wrapper::after {
-            content: "▾";
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-            font-size: 1.2rem;
-            pointer-events: none;
-        }
-
-    InputSelect.form-control {
-        appearance: none;
-        padding: 12px 20px;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.9) !important;
+    .step-item.active .step-circle {
+        background: var(--primary-blue);
+        border-color: var(--primary-blue);
+        color: white;
+        transform: scale(1.1);
     }
 
-        InputSelect.form-control:focus {
-            border-color: #4CAF50;
-            box-shadow: 0 0 12px rgba(76, 175, 80, 0.2);
-        }
-
-    .form-control option {
-        padding: 12px 15px;
-        background: rgba(255, 255, 255, 0.9);
-        transition: background 0.2s ease;
+    .step-item.completed .step-circle {
+        background: #10b981;
+        border-color: #10b981;
+        color: white;
     }
 
-        .form-control option:hover {
-            background: #f5f7fa !important;
-        }
+    .step-line {
+        height: 2px;
+        background: rgba(33, 150, 243, 0.2);
+        flex: 1;
+        margin: 0 1rem;
+    }
 
-        .form-control option:checked {
-            background: #4CAF50;
-            color: white;
-        }
+    .step-item.completed .step-line {
+        background: #10b981;
+    }
 
-    /* Buttons & Labels */
-    .btn {
-        border-radius: 8px;
-        padding: 12px 24px;
+    .step-label {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #64748b;
+        white-space: nowrap;
+    }
+
+    .step-item.active .step-label {
+        color: var(--primary-blue);
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        transition: all 0.3s ease;
-        backdrop-filter: blur(5px);
     }
 
-    .btn-primary {
-        background: #4CAF50;
-        border-color: #45a049;
-    }
-
-        .btn-primary:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-        }
-
-    .btn-secondary {
-        background: #6c757d;
-        border-color: #5a6268;
-    }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-            transform: translateY(-2px);
-        }
-
-    h2, h3, h4 {
-        color: #2c3e50;
-        font-weight: 600;
-        text-align: center;
+    /* Form Container */
+    .form-container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         margin-bottom: 2rem;
+        min-height: 600px;
+        position: relative;
     }
 
+    .step-content {
+        animation: fadeInUp 0.4s ease;
+    }
+
+    .step-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    /* Animation Keyframes */
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    @@keyframes slideInLeft {
+        from
+
+    {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    }
+
+    /* Animated Elements */
+    .animated-card {
+        animation: fadeInUp 0.5s ease;
+        animation-fill-mode: both;
+    }
+
+    .nav-pills-container {
+        animation: slideInLeft 0.3s ease;
+    }
+
+    /* Service Selection Cards */
+    .service-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    /* Card Styles - General */
+    .card-glass {
+        background: var(--card-white) !important;
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        cursor: pointer;
+    }
+
+        /* Horizontal Solar Cards */
+        .card-glass.horizontal-layout {
+            flex-direction: row !important;
+            align-items: stretch;
+            min-height: 250px;
+            padding: 0 !important;
+            overflow: hidden;
+            text-align: left;
+            overflow: visible !important;
+            cursor: default;
+        }
+
+    .card-updating {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease;
+    }
+
+    .card-glass .image-container {
+        width: 40%;
+        height: auto;
+        border-radius: 15px 0 0 15px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .card-glass .card-body {
+        padding: 1.5rem;
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .card-glass:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.15);
+        background: rgba(255, 255, 255, 0.4) !important;
+    }
+
+    .card-glass.active {
+        background: var(--primary-blue) !important;
+        color: white;
+        box-shadow: 0 8px 25px rgba(33, 150, 243, 0.3);
+    }
+
+    /* Enhanced Service Options */
+    .service-option {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+    }
+
+        .service-option label {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            width: 100%;
+            text-align: center;
+        }
+
+        .service-option:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(33, 150, 243, 0.15);
+        }
+
+        .service-option.selected {
+            background: rgba(33, 150, 243, 0.1);
+            border-color: var(--primary-blue);
+            transform: scale(1.02);
+        }
+
+            .service-option.selected label {
+                color: var(--primary-blue);
+                font-weight: 600;
+            }
+
+        /* Custom Checkbox Styling */
+        .service-option .form-check-input {
+            width: 1.4em;
+            height: 1.4em;
+            margin-bottom: 1rem;
+            border: 2px solid var(--primary-blue);
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .service-option .form-check-input:checked {
+                background-color: var(--primary-blue);
+                border-color: var(--primary-blue);
+            }
+
+            .service-option .form-check-input:focus {
+                box-shadow: 0 0 0 0.25rem rgba(33, 150, 243, 0.25);
+            }
+
+    /* Enhanced Input Fields */
+    .form-control {
+        background: var(--input-bg);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 0.75rem 1.25rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        backdrop-filter: blur(4px);
+        margin-top: 0.5rem;
+        width: 100%;
+        display: block;
+    }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.95);
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
+            outline: none;
+        }
+
+    /* Form Group Styling */
     .form-group {
-        margin-bottom: 1.5rem;
+        position: relative;
+        margin-bottom: 2rem;
     }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
             font-weight: 500;
-            color: #34495e;
+            color: var(--primary-blue);
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
         }
 
-    .navigation-buttons {
-        display: flex;
-        gap: 1rem;
-        justify-content: flex-end;
-        margin-top: 2rem;
+    /* Validation Styling */
+    .validation-message {
+        color: #e53935;
+        font-size: 0.85rem;
+        margin-top: 0.25rem;
+        font-weight: 500;
+        padding-left: 0.5rem;
     }
 
-    @@media (max-width: 768px) {
-        .service-cards {
-            grid-template-columns: 1fr;
-            padding: 1rem;
+    /* Package Selection Pills */
+    .nav-pills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .nav-link {
+        padding: 0.8rem 1.5rem;
+        border-radius: 25px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: var(--primary-blue);
+        transition: all 0.3s ease;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 1rem;
+    }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
-        .service-details, .contact-info {
-            padding: 1.5rem;
-            margin: 1rem;
+        .nav-link.active {
+            background: var(--primary-blue) !important;
+            color: white !important;
+            box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
         }
 
-        .btn {
+    /* Image Container */
+    .image-container {
+        width: 100%;
+        height: 300px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        margin-bottom: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+
+        .image-container img {
             width: 100%;
-            margin: 0.5rem 0;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
-        .navigation-buttons {
-            flex-direction: column;
+        .image-container:hover img {
+            transform: scale(1.05);
         }
 
-        .service-option {
-            padding: 1rem;
+    /* Navigation Buttons */
+    .navigation-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 3rem;
+        gap: 1rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-nav {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+    }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
+
+    .btn-prev {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--primary-blue);
+        color: var(--primary-blue);
+    }
+
+    .btn-next {
+        background: var(--primary-blue);
+        color: white;
+        border: 1px solid var(--primary-blue);
+    }
+
+    .btn-success {
+        background: #10b981;
+        color: white;
+        border: 1px solid #10b981;
+    }
+
+    /* Package Details */
+    .spec-section {
+        margin: 1.5rem 0;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .spec-list {
+        list-style: none;
+        padding-left: 1.5rem;
+    }
+
+        .spec-list li::before {
+            content: "•";
+            color: var(--primary-blue);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+    .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+
+    .spec-item {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 0.8rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+        .spec-item span {
+            font-weight: 500;
+            color: var(--primary-blue);
+            margin-right: 0.5rem;
+        }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .main-container
+
+    {
+        padding: 0 0.5rem;
+    }
+
+    .form-container {
+        padding: 2rem 1.5rem;
+        margin: 0 0.5rem 2rem;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .step-progress {
+        padding: 0 1rem;
+    }
+
+    .step-item {
+        max-width: 150px;
+    }
+
+    .step-circle {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .step-label {
+        font-size: 0.8rem;
+        top: 45px;
+    }
+
+    .service-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .card-glass.horizontal-layout {
+        flex-direction: column !important;
+    }
+
+    .card-glass .image-container {
+        width: 100%;
+        height: 200px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .card-glass .card-body {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .navigation-buttons {
+        flex-direction: column;
+    }
+
+    .btn-nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .image-container {
+        height: 200px;
+    }
+
+    .nav-pills-container {
+        flex-direction: column;
+    }
+
+    .service-option {
+        min-height: 100px;
+        padding: 1rem;
+    }
+
+        .service-option label {
+            font-size: 1rem;
+        }
+
+    .form-control {
+        padding: 0.65rem 1rem;
+    }
+
     }
 </style>
 
-<EditForm Model="CurrentData" OnValidSubmit="HandleSubmit">
-    <DataAnnotationsValidator />
+<HeadContent>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+</HeadContent>
 
-    @if (currentStep == 1)
-    {
-        <h2>What type of service does your project require</h2>
-        <div class="service-cards d-flex justify-content-around mb-4">
-            <div class="card @(CurrentData.ServiceType == ServiceType.Solar ? "active border-primary" : "") p-3"
-                 @onclick="() => SelectService(ServiceType.Solar)">
-                <div class="text-center">
-                    <i class="fas fa-solar-panel fa-3x text-primary mb-2"></i>
-                    <h5>Solar Solution</h5>
-                </div>
-            </div>
-            <div class="card @(CurrentData.ServiceType == ServiceType.Electrical ? "active border-warning" : "") p-3"
-                 @onclick="() => SelectService(ServiceType.Electrical)">
-                <div class="text-center">
-                    <i class="fas fa-bolt fa-3x text-warning mb-2"></i>
-                    <h5>Electrical Solution</h5>
-                </div>
-            </div>
-            <div class="card @(CurrentData.ServiceType == ServiceType.Repair ? "active border-danger" : "") p-3"
-                 @onclick="() => SelectService(ServiceType.Repair)">
-                <div class="text-center">
-                    <i class="fas fa-tools fa-3x text-danger mb-2"></i>
-                    <h5>Repair & Maintenance</h5>
-                </div>
-            </div>
+<div class="main-container">
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1 class="page-title">Create New Project</h1>
+        <p class="page-subtitle">Configure your solar, electrical, or repair service project</p>
+    </div>
+
+    <!-- Step Progress Indicator -->
+    <div class="step-progress">
+        <div class="step-item @(currentStep >= 1 ? currentStep == 1 ? "active" : "completed" : "")">
+            <div class="step-circle">1</div>
+            <div class="step-label">Service Type</div>
         </div>
-    }
-    else if (currentStep == 2)
-    {
-        <div class="service-details p-4 bg-white rounded shadow-sm mb-4">
-            @if (CurrentData.ServiceType == ServiceType.Solar)
+        <div class="step-line"></div>
+        <div class="step-item @(currentStep >= 2 ? currentStep == 2 ? "active" : "completed" : "")">
+            <div class="step-circle">2</div>
+            <div class="step-label">Configuration</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item @(currentStep >= 3 ? currentStep == 3 ? "active" : "completed" : "")">
+            <div class="step-circle">3</div>
+            <div class="step-label">Location</div>
+        </div>
+        <div class="step-line"></div>
+        <div class="step-item @(currentStep >= 4 ? "active" : "")">
+            <div class="step-circle">4</div>
+            <div class="step-label">Contact Info</div>
+        </div>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <EditForm Model="CurrentData" OnValidSubmit="HandleSubmit">
+            <DataAnnotationsValidator />
+
+            @* Step 1: Service Type Selection *@
+            @if (currentStep == 1)
             {
-                <h4 class="mb-4">Select Solar Plant Size</h4>
-                <div class="select-wrapper">
-                    <InputSelect @bind-Value="CurrentData.KwSize" class="form-control mb-4">
-                        <option value="">Select Size</option>
-                        <option value="1.2">1.2kW (Basic Residential)</option>
-                        <option value="2.2">2.2kW (Standard Home)</option>
-                        <option value="3.2">3.2kW (Large Home)</option>
-                        <option value="5">5kW (Small Business)</option>
-                        <option value="10">10kW (Commercial)</option>
-                    </InputSelect>
+                <div class="step-content">
+                    <h2 class="step-title">Select Service Type</h2>
+                    <div class="service-cards">
+                        @foreach (var svcType in ServiceTypes)
+                        {
+                            <div class="card-glass p-3 @(CurrentData.ServiceType == svcType.Type ? "active" : "")"
+                                 @onclick="() => SelectService(svcType.Type)"
+                                 @key="svcType.Type">
+                                <i class="@svcType.IconClass" aria-label="@svcType.Label"></i>
+                                <h5>@svcType.Label</h5>
+                            </div>
+                        }
+                    </div>
                 </div>
             }
-            else
+
+            @* Step 2: Service-specific Configuration *@
+            else if (currentStep == 2)
             {
-                <h4 class="mb-4">Select Required Services</h4>
-                <div class="row">
-                    @foreach (var service in GetServicesForType())
+                <div class="step-content">
+                    @if (CurrentData.ServiceType == ServiceType.Solar)
                     {
-                        <div class="col-md-6 mb-3">
-                            <div class="service-option @(CurrentData.SelectedServices.Contains(service) ? "selected" : "")">
-                                <input class="form-check-input"
-                                       type="checkbox"
-                                       id="chk_@service"
-                                       checked="@CurrentData.SelectedServices.Contains(service)"
-                                       @onchange="@(e => HandleServiceCheckbox(e, service))" />
-                                <label class="form-check-label d-flex align-items-center" for="chk_@service">
-                                    <i class="fas @(GetServiceIcon(service)) text-muted mr-2"></i>
-                                    @service
-                                </label>
+                        <h4 class="step-title">Choose Solar Plant Size</h4>
+                        <div class="nav-pills-container">
+                            @foreach (var pkg in SolarPackages)
+                            {
+                                <button type="button"
+                                        class="nav-link @(CurrentData.KwSize == pkg.Size ? "active" : "")"
+                                        @onclick="() => SelectPackage(pkg.Size)"
+                                        @key="pkg.Size">
+                                    @pkg.Label
+                                </button>
+                            }
+                        </div>
+
+                        @if (SelectedPackage != null)
+                        {
+                            <div class="animated-card card-glass horizontal-layout"
+                                 @key="@SelectedPackage.Size">
+                                <div class="image-container">
+                                    <img src="@SelectedPackage.ImageUrl" alt="@SelectedPackage.Label" />
+                                </div>
+                                <div class="card-body">
+                                    @((MarkupString)SelectedPackage.Details)
+                                </div>
                             </div>
+                        }
+                    }
+                    else
+                    {
+                        <h4 class="step-title">Select Required Services</h4>
+                        <div class="row">
+                            @foreach (var svc in GetServicesForType())
+                            {
+                                <div class="col-md-6 mb-3" @key="svc">
+                                    <div class="service-option @(CurrentData.SelectedServices.Contains(svc) ? "selected" : "")">
+                                        <input id="svc_@svc"
+                                               type="checkbox"
+                                               class="form-check-input"
+                                               checked="@CurrentData.SelectedServices.Contains(svc)"
+                                               @onchange="e => HandleServiceCheckbox(e, svc)" />
+                                        <label for="svc_@svc" class="ml-2">@svc</label>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     }
+
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn btn-prev btn-nav" @onclick="PreviousStep">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="button"
+                                class="btn btn-next btn-nav"
+                                @onclick="NextStep"
+                                disabled="@(CurrentData.ServiceType == ServiceType.Solar
+                                                ? !CurrentData.KwSize.HasValue
+                                                : !CurrentData.SelectedServices.Any())">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             }
-            <div class="d-flex justify-content-between mt-4">
-                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
-                <button type="button" class="btn btn-primary" @onclick="NextStep">Next</button>
-            </div>
-        </div>
-    }
-    else if (currentStep == 3)
-    {
-        <div class="contact-info p-4 bg-white rounded shadow-sm mb-4">
-            <div class="form-group">
-                <label>Address</label>
-                <InputText @bind-Value="CurrentData.Address" class="form-control" placeholder="Enter your address" />
-                <ValidationMessage For="@(() => CurrentData.Address)" />
-            </div>
-            <div class="form-group">
-                <label>Booking Date</label>
-                <InputDate @bind-Value="CurrentData.BookingDate" class="form-control" />
-                <ValidationMessage For="@(() => CurrentData.BookingDate)" />
-            </div>
-            <div class="d-flex justify-content-between mt-4">
-                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
-                <button type="button" class="btn btn-primary" @onclick="NextStep">Next</button>
-            </div>
-        </div>
-    }
-    else if (currentStep == 4)
-    {
-        <div class="contact-info p-4 bg-white rounded shadow-sm">
-            <ValidationSummary />
-            <div class="form-group">
-                <label>Contact Name</label>
-                <InputText @bind-Value="CurrentData.ContactName" class="form-control" placeholder="Full name" />
-                <ValidationMessage For="@(() => CurrentData.ContactName)" />
-            </div>
-            <div class="form-group">
-                <label>Contact Email</label>
-                <InputText @bind-Value="CurrentData.ContactEmail" class="form-control" placeholder="you@example.com" />
-                <ValidationMessage For="@(() => CurrentData.ContactEmail)" />
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <InputText @bind-Value="CurrentData.ContactPhone" class="form-control" placeholder="+1234567890" />
-                <ValidationMessage For="@(() => CurrentData.ContactPhone)" />
-            </div>
-            <div class="d-flex justify-content-between mt-4">
-                <button type="button" class="btn btn-secondary" @onclick="PreviousStep">Back</button>
-                <button type="submit" class="btn btn-success">Submit</button>
-            </div>
-        </div>
-    }
-</EditForm>
+
+            @* Step 3: Location & Scheduling *@
+            else if (currentStep == 3)
+            {
+                <div class="step-content">
+                    <h4 class="step-title">Location & Schedule</h4>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <InputText @bind-Value="CurrentData.Address" class="form-control" placeholder="Enter your complete address" />
+                        <ValidationMessage For="@(() => CurrentData.Address)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Booking Date</label>
+                        <InputDate @bind-Value="CurrentData.BookingDate" class="form-control" />
+                        <ValidationMessage For="@(() => CurrentData.BookingDate)" />
+                    </div>
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn btn-prev btn-nav" @onclick="PreviousStep">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="button" class="btn btn-next btn-nav" @onclick="NextStep">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            }
+
+            @* Step 4: Contact Information *@
+            else
+            {
+                <div class="step-content">
+                    <h4 class="step-title">Contact Information</h4>
+                    <ValidationSummary />
+                    <div class="form-group">
+                        <label>Contact Name</label>
+                        <InputText @bind-Value="CurrentData.ContactName" class="form-control" placeholder="Enter your full name" />
+                        <ValidationMessage For="@(() => CurrentData.ContactName)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Email</label>
+                        <InputText @bind-Value="CurrentData.ContactEmail" class="form-control" placeholder="Enter your email address" />
+                        <ValidationMessage For="@(() => CurrentData.ContactEmail)" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <InputText @bind-Value="CurrentData.ContactPhone" class="form-control" placeholder="Enter your phone number" />
+                        <ValidationMessage For="@(() => CurrentData.ContactPhone)" />
+                    </div>
+                    <div class="navigation-buttons">
+                        <button type="button" class="btn btn-prev btn-nav" @onclick="PreviousStep">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button type="submit" class="btn btn-success btn-nav">
+                            <i class="fas fa-check"></i> Submit Project
+                        </button>
+                    </div>
+                </div>
+            }
+        </EditForm>
+    </div>
+</div>
 
 @code {
-    private ProjectSubmission CurrentData { get; set; } = new ProjectSubmission
-        {
-            SelectedServices = new List<string>(),
-            BookingDate = DateTime.Today
-        };
+    private ProjectSubmission CurrentData { get; set; } =
+        new() { SelectedServices = new List<string>(), BookingDate = DateTime.Today };
     private int currentStep = 1;
 
-    private List<string> ElectricalServices = new()
+    class SolarPackage
     {
-        "CCTV installation",
-        "Fire alarm system",
-        "EV charging",
-        "Electrical wiring",
-        "Lighting design",
-        "AC installation"
-    };
-
-    private List<string> RepairServices = new()
-    {
-        "Solar system maintenance",
-        "Electrical repairs",
-        "Appliance repairs",
-        "Wiring fixes",
-        "Lighting maintenance"
-    };
-
-    private string GetServiceIcon(string service)
-    {
-        return service switch
-        {
-            string s when s.Contains("CCTV") => "fa-video",
-            string s when s.Contains("Fire") => "fa-fire-extinguisher",
-            string s when s.Contains("EV") => "fa-charging-station",
-            string s when s.Contains("wiring") => "fa-bolt",
-            string s when s.Contains("Lighting") => "fa-lightbulb",
-            string s when s.Contains("AC") => "fa-wind",
-            string s when s.Contains("Solar") => "fa-solar-panel",
-            string s when s.Contains("Appliance") => "fa-tools",
-            _ => "fa-check-circle"
-        };
+        public decimal Size { get; set; }
+        public string Label => $"{Size}kW";
+        public string ImageUrl { get; set; } = string.Empty;
+        public string Details { get; set; } = string.Empty;
     }
 
-    private void SelectService(ServiceType service)
+    private List<SolarPackage> SolarPackages = new()
     {
-        CurrentData.ServiceType = service;
+        new() {
+            Size = 1.2m,
+            ImageUrl = "img/1.2kw.png",
+            Details = "<section class='spec-section'><strong>Package 1.2kW</strong><div>Basic residential solution for small apartments/studios</div><ul class='spec-list'><li>1-ton AC</li><li>Lights & fans</li><li>TV/appliances</li></ul><div class='spec-grid'><div><span>Capacity:</span>1.2 kW</div><div><span>Battery:</span>2.4 kWh</div><div><span>Solar:</span>2 kW</div></div></section>"
+        },
+        new() {
+            Size = 2.2m,
+            ImageUrl = "img/2.2kw.png",
+            Details = "<section class='spec-section'><strong>Package 2.2kW</strong><div>Compact system for 1-2 bedroom homes</div><ul class='spec-list'><li>Two 1-ton ACs</li><li>Refrigerator</li><li>Full lighting</li></ul><div class='spec-grid'><div><span>Capacity:</span>2.2 kW</div><div><span>Battery:</span>4.8 kWh</div><div><span>Solar:</span>3.5 kW</div></div></section>"
+        },
+        new() {
+            Size = 3.2m,
+            ImageUrl = "img/3.2kw.png",
+            Details = "<section class='spec-section'><strong>Package 3.2kW</strong><div>Whole-home solution for 3-bed houses</div><ul class='spec-list'><li>Three 1-ton ACs</li><li>Large fridge</li><li>Washing machine</li></ul><div class='spec-grid'><div><span>Capacity:</span>3.2 kW</div><div><span>Battery:</span>6.4 kWh</div><div><span>Solar:</span>5 kW</div></div></section>"
+        },
+        new() {
+            Size = 5m,
+            ImageUrl = "img/5kw.jpg",
+            Details = "<section class='spec-section'><strong>Package 5kW</strong><div>Small business/office solution</div><ul class='spec-list'><li>Four 1.5-ton ACs</li><li>Commercial fridge</li><li>POS systems</li></ul><div class='spec-grid'><div><span>Capacity:</span>5 kW</div><div><span>Battery:</span>10 kWh</div><div><span>Solar:</span>7.5 kW</div></div></section>"
+        },
+        new() {
+            Size = 10m,
+            ImageUrl = "img/10kw.jpg",
+            Details = "<section class='spec-section'><strong>Package 10kW</strong><div>Medium commercial solution</div><ul class='spec-list'><li>Six 2-ton ACs</li><li>Servers</li><li>Machinery</li></ul><div class='spec-grid'><div><span>Capacity:</span>10 kW</div><div><span>Battery:</span>20 kWh</div><div><span>Solar:</span>15 kW</div></div></section>"
+        },
+        new() {
+            Size = 20m,
+            ImageUrl = "img/20kw.jpg",
+            Details = "<section class='spec-section'><strong>Package 20kW</strong><div>Large commercial complex</div><ul class='spec-list'><li>Ten 2-ton ACs</li><li>Data centers</li><li>Heavy machinery</li></ul><div class='spec-grid'><div><span>Capacity:</span>20 kW</div><div><span>Battery:</span>40 kWh</div><div><span>Solar:</span>30 kW</div></div></section>"
+        },
+        new() {
+            Size = 30m,
+            ImageUrl = "img/30kw.jpg",
+            Details = "<section class='spec-section'><strong>Package 30kW</strong><div>Industrial-grade power solution</div><ul class='spec-list'><li>Manufacturing equipment</li><li>AC chillers</li><li>High-voltage systems</li></ul><div class='spec-grid'><div><span>Capacity:</span>30 kW</div><div><span>Battery:</span>60 kWh</div><div><span>Solar:</span>45 kW</div></div></section>"        }
+    };
+
+    private SolarPackage? SelectedPackage =>
+        SolarPackages.FirstOrDefault(p => p.Size == CurrentData.KwSize);
+
+    private List<string> ElectricalServices = new() { "CCTV Installation", "Fire Alarm System Installation", "EV Charging Station Installationn", "Electrical Wiring", "Lighting System & Designs", "AC Installation" };
+    private List<string> RepairServices = new() { "Solar Maintenance", "Electrical Repairs", "AC Gas Refill", "Wiring fixes", "Lighting System Repairs" };
+
+    private record ServiceTypeConfig(ServiceType Type, string IconClass, string Label);
+    private List<ServiceTypeConfig> ServiceTypes = new()
+    {
+        new(ServiceType.Solar,      "fas fa-solar-panel fa-3x text-primary mb-2",    "Solar Solution"),
+        new(ServiceType.Electrical, "fas fa-bolt fa-3x text-warning mb-2",           "Electrical Solution"),
+        new(ServiceType.Repair,     "fas fa-tools fa-3x text-danger mb-2",           "Repair & Maintenance")
+    };
+
+    private async Task SelectPackage(decimal size)
+    {
+        CurrentData.KwSize = size;
+
+        StateHasChanged();
+        await Task.Delay(1);
+        StateHasChanged();
+    }
+
+    private void SelectService(ServiceType svc)
+    {
+        CurrentData.ServiceType = svc;
+        CurrentData.KwSize = null;
+        CurrentData.SelectedServices.Clear();
+        StateHasChanged();
         NextStep();
     }
 
-    private List<string> GetServicesForType() =>
-        CurrentData.ServiceType switch
-        {
-            ServiceType.Electrical => ElectricalServices,
-            ServiceType.Repair => RepairServices,
-            _ => new()
-        };
-
-    private void HandleServiceCheckbox(ChangeEventArgs e, string service)
+    private List<string> GetServicesForType() => CurrentData.ServiceType switch
     {
-        bool isChecked = (bool?)e.Value ?? false;
-        if (isChecked)
-        {
-            if (!CurrentData.SelectedServices.Contains(service))
-                CurrentData.SelectedServices.Add(service);
-        }
-        else
-        {
-            CurrentData.SelectedServices.Remove(service);
-        }
+        ServiceType.Electrical => ElectricalServices,
+        ServiceType.Repair => RepairServices,
+        _ => new()
+    };
+
+    private void HandleServiceCheckbox(ChangeEventArgs e, string svc)
+    {
+        var isChecked = (bool?)e.Value ?? false;
+        if (isChecked && !CurrentData.SelectedServices.Contains(svc))
+            CurrentData.SelectedServices.Add(svc);
+        else if (!isChecked && CurrentData.SelectedServices.Contains(svc))
+            CurrentData.SelectedServices.Remove(svc);
+
+        StateHasChanged();
     }
 
     private void NextStep() => currentStep = Math.Min(currentStep + 1, 4);
@@ -450,4 +900,5 @@
         await ProjectService.SubmitProjectAsync(CurrentData);
         Navigation.NavigateTo("/submission-success");
     }
+   
 }

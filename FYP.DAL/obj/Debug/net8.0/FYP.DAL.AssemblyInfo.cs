@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FYP.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9443e0a10b4405b4f6b9e281ac7b2b9bff5b357c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3a0dfb13178412308bc1a57a5cc14e55c9d3f82")]
 [assembly: System.Reflection.AssemblyProductAttribute("FYP.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FYP.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,673 @@
+﻿@page "/solar-assistant"
+@rendermode InteractiveServer
+@inject IChatService ChatService
+@implements IDisposable
+
+<style>
+    /* Solar-themed styling */
+    .chat-container {
+        max-width: 800px;
+        height: 80vh;
+        margin: 2rem auto;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9f7fe 100%);
+        border: 1px solid #cde7f0;
+    }
+
+    .chat-header {
+        background: linear-gradient(135deg, #8e44ad 0%, #3498db 100%);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+    }
+
+        .chat-header h2 {
+            margin: 0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+            .chat-header h2 i {
+                font-size: 1.5rem;
+                animation: pulse 2s infinite;
+            }
+
+    .message-history {
+        flex: 1;
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="%23d6eaf8" opacity="0.3"/></svg>');
+        background-size: 20px 20px;
+    }
+
+    .message {
+        max-width: 75%;
+        padding: 15px 20px;
+        border-radius: 18px;
+        position: relative;
+        animation: fadeIn 0.3s ease-out;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        line-height: 1.5;
+        word-wrap: break-word;
+        transform-origin: bottom;
+    }
+
+    .user-message {
+        align-self: flex-end;
+        background: linear-gradient(135deg, #3498db 0%, #2e86c1 100%);
+        color: white;
+        border-bottom-right-radius: 5px;
+        animation: slideInRight 0.3s ease-out;
+    }
+
+    .bot-message {
+        align-self: flex-start;
+        background: white;
+        color: #2c3e50;
+        border-bottom-left-radius: 5px;
+        animation: slideInLeft 0.3s ease-out;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        border: 1px solid #d6eaf8;
+    }
+
+    .message-bubble {
+        position: relative;
+        z-index: 2;
+    }
+
+    .solar-tip {
+        background-color: #fef9e7;
+        border-left: 4px solid #f1c40f;
+        padding: 10px 15px;
+        margin: 10px 0;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+    .solar-benefit {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 8px 0;
+    }
+
+        .solar-benefit i {
+            color: #f1c40f;
+            font-size: 1.2rem;
+        }
+
+    .message-time {
+        font-size: 0.7rem;
+        opacity: 0.7;
+        margin-top: 5px;
+        text-align: right;
+    }
+
+    .user-message .message-time {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .bot-message .message-time {
+        color: rgba(44, 62, 80, 0.5);
+    }
+
+    .user-message::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: -6px;
+        width: 12px;
+        height: 12px;
+        background: linear-gradient(135deg, #3498db 0%, #2e86c1 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+
+    .bot-message::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: -6px;
+        width: 12px;
+        height: 12px;
+        background: white;
+        clip-path: polygon(0 0, 0 100%, 100% 0);
+    }
+
+    .input-area {
+        display: flex;
+        padding: 20px;
+        background: white;
+        border-top: 1px solid #e6ecf0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+        .input-area input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid #d6eaf8;
+            border-radius: 30px;
+            background: #f0f8ff;
+            font-size: 16px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+            .input-area input:focus {
+                outline: none;
+                box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.1), 0 0 0 2px #3498db;
+                background: white;
+                border-color: #3498db;
+            }
+
+        .input-area button {
+            margin-left: 15px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #f39c12 0%, #f1c40f 100%);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(243, 156, 18, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+            .input-area button:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(243, 156, 18, 0.6);
+            }
+
+            .input-area button:active {
+                transform: translateY(0);
+            }
+
+            .input-area button::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                transition: width 0.4s ease, height 0.4s ease;
+            }
+
+            .input-area button:hover::after {
+                width: 300px;
+                height: 300px;
+            }
+
+            .input-area button:disabled {
+                background: #d1d8e0;
+                box-shadow: none;
+                transform: none;
+                cursor: not-allowed;
+            }
+
+    .solar-faq {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .faq-item {
+        background: rgba(52, 152, 219, 0.1);
+        border: 1px solid #3498db;
+        border-radius: 8px;
+        padding: 8px 12px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.85rem;
+    }
+
+        .faq-item:hover {
+            background: rgba(52, 152, 219, 0.2);
+            transform: translateY(-2px);
+        }
+
+    .typing-indicator {
+        display: flex;
+        align-items: center;
+        padding: 15px 20px;
+        background: white;
+        border-radius: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        align-self: flex-start;
+        max-width: 100px;
+    }
+
+        .typing-indicator span {
+            width: 10px;
+            height: 10px;
+            background: #3498db;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            animation: typing 1.2s infinite ease-in-out;
+        }
+
+            .typing-indicator span:nth-child(2) {
+                animation-delay: 0.2s;
+                background: #2e86c1;
+            }
+
+            .typing-indicator span:nth-child(3) {
+                animation-delay: 0.4s;
+                background: #3498db;
+            }
+
+    .message-history::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .message-history::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 4px;
+    }
+
+    .message-history::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #3498db 0%, #1a5276 100%);
+        border-radius: 4px;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @@keyframes slideInRight {
+        from {
+            opacity: 0;
+            transform: translateX(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @@keyframes slideInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @@keyframes typing {
+        0%, 60%, 100% {
+            transform: translateY(0);
+        }
+
+        30% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @@keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .chat-container {
+            height: 90vh;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .message {
+            max-width: 85%;
+        }
+
+        .input-area {
+            padding: 15px;
+        }
+
+            .input-area button {
+                padding: 15px 20px;
+            }
+    }
+
+    @@media (max-width: 480px) {
+        .message {
+            max-width: 90%;
+            padding: 12px 16px;
+            font-size: 14px;
+        }
+
+        .input-area input {
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+
+        .input-area button {
+            padding: 12px 18px;
+            font-size: 14px;
+        }
+    }
+</style>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <h2><i>☀️</i> Solar Energy Assistant</h2>
+    </div>
+
+    <div class="message-history">
+        @foreach (var message in messages)
+        {
+            <div class="message @message.Class">
+                <div class="message-bubble">
+                    @if (message.Class == "bot-message" && message.IsSolarContent)
+                    {
+                        @((MarkupString)message.FormattedContent)
+                    }
+                    else
+                    {
+                        @message.Text
+                    }
+                </div>
+                <div class="message-time">@message.Timestamp.ToString("h:mm tt")</div>
+            </div>
+        }
+
+        @if (isLoading)
+        {
+            <div class="typing-indicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        }
+
+        @if (!messages.Any(m => m.Class == "bot-message"))
+        {
+            <div class="message bot-message">
+                <div class="message-bubble">
+                    <p>Hello! I'm your Solar Energy Assistant. I can help with:</p>
+                    <div class="solar-benefit">
+                        <i>☀️</i> <span>Solar panel installation questions</span>
+                    </div>
+                    <div class="solar-benefit">
+                        <i>💰</i> <span>Cost estimates and savings</span>
+                    </div>
+                    <div class="solar-benefit">
+                        <i>🔋</i> <span>Battery storage options</span>
+                    </div>
+                    <div class="solar-benefit">
+                        <i>🏠</i> <span>Home energy solutions</span>
+                    </div>
+
+                    <div class="solar-tip">
+                        <strong>Try asking:</strong> "How much does a solar system cost?" or "What size system do I need?"
+                    </div>
+
+                    <div class="solar-faq">
+                        <div class="faq-item" @onclick='() => SendSuggestedQuestion("How much does solar cost?")'>Costs</div>
+                        <div class="faq-item" @onclick='() => SendSuggestedQuestion("What are solar incentives?")'>Incentives</div>
+                        <div class="faq-item" @onclick='() => SendSuggestedQuestion("How long does installation take?")'>Installation</div>
+                        <div class="faq-item" @onclick='() => SendSuggestedQuestion("What maintenance is required?")'>Maintenance</div>
+
+
+                    </div>
+                </div>
+                <div class="message-time">@DateTime.Now.ToString("h:mm tt")</div>
+            </div>
+        }
+    </div>
+
+    <div class="input-area">
+        <input @bind="userInput"
+               @bind:event="oninput"
+               placeholder="Ask about solar panels, costs, installation..."
+               disabled="@isLoading"
+               @onkeypress="HandleKeyPress" />
+        <button @onclick="SendMessage"
+                disabled="@isLoading">
+            <i>➤</i>
+        </button>
+    </div>
+</div>
+
+@code {
+    private string userInput = "";
+    private bool isLoading = false;
+    private readonly List<MessageModel> messages = new();
+    private CancellationTokenSource cts = new();
+
+    // Solar knowledge base
+    private Dictionary<string, string> solarKnowledge = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+    {
+        {"cost", "The average cost for a residential solar system ranges from Rs 3 lac to Rs 5 lac before incentives.Costs vary based on system size, location, and equipment quality."},
+        {"incentives", "Solar incentives include:<br>- 26% Federal Tax Credit (2023)<br>- State-specific rebates (check DSIRE database)<br>- Net metering programs<br>- Solar Renewable Energy Credits (SRECs)<br>- Local utility rebates"},
+        {"installation", "Solar installation typically takes 1-3 days after permits are approved. The full process includes:<br>1. Site assessment (1-2 weeks)<br>2. Permitting (2-8 weeks)<br>3. Installation (1-3 days)<br>4. Inspection and interconnection (1-4 weeks)"},
+        {"maintenance", "Solar panels require minimal maintenance:<br>- Clean panels 1-2 times per year<br>- Trim nearby trees to prevent shading<br>- Monitor system performance monthly<br>- Professional inspection every 3-5 years<br>Most systems come with 25-year warranties."},
+        {"size", "The average home needs a 6-8 kW system. To estimate your needs:<br>1. Review your annual kWh usage<br>2. Divide by your area's production ratio (1.2-1.6)<br>3. Example: 10,000 kWh ÷ 1.4 = 7.14 kW system<br>Our experts can provide a precise assessment."},
+        {"battery", "Solar batteries store excess energy for use at night or during outages. Options include:<br>- Lithium-ion (Tesla Powerwall, LG Chem)<br>- Lead-acid (lower cost)<br>Typical home systems use 10-20 kWh storage. Battery costs range from Rs 3 lac to 5 lac installed."},
+        {"savings", "Most homeowners save 50-90% on electricity bills. Payback periods typically range from 6-10 years. Factors affecting savings:<br>- Local electricity rates<br>- System size<br>- Sun exposure<br>- Incentives<br>Request a personalized savings estimate!"},
+        {"efficiency", "Modern solar panels are 15-22% efficient. Higher efficiency panels generate more power in limited space but cost more. Top brands include SunPower (22.8%), LG (21.7%), and Panasonic (21.2%)."},
+        {"roof", "Solar panels work on most roof types:<br>- Asphalt shingles: Easiest installation<br>- Metal roofs: Great for solar<br>- Tile roofs: Special mounting required<br>- Flat roofs: Angled mounting<br>We'll assess your roof's condition, orientation, and shading during our free consultation."},
+        {"warranty", "Solar systems come with two warranties:<br>1. Equipment warranty: 10-25 years (covers panels/inverters)<br>2. Performance warranty: 25 years (guarantees 80-90% output at 25 years)<br>Workmanship warranties typically cover 5-10 years."}
+    };
+
+    protected override void OnInitialized()
+    {
+        // Initialize with a welcome message if empty
+        if (!messages.Any())
+        {
+            messages.Add(new MessageModel(
+                "Hello! I'm your Solar Energy Assistant. Ask me about solar panels, installation, costs, savings, and more!",
+                "bot",
+                DateTime.Now,
+                true
+            ));
+        }
+    }
+
+    private async Task SendMessage()
+    {
+        if (string.IsNullOrWhiteSpace(userInput)) return;
+
+        // Add user message
+        messages.Add(new MessageModel(userInput, "user", DateTime.Now));
+
+        string currentInput = userInput;
+        userInput = "";
+        isLoading = true;
+
+        try
+        {
+            cts = new CancellationTokenSource();
+
+            // First check if we have a solar-specific answer
+            string solarResponse = GetSolarResponse(currentInput);
+
+            if (!string.IsNullOrEmpty(solarResponse))
+            {
+                messages.Add(new MessageModel(
+                    solarResponse,
+                    "bot",
+                    DateTime.Now,
+                    true
+                ));
+            }
+            else
+            {
+                // Use AI service for other questions
+                var botResponse = await ChatService.GetResponseAsync(currentInput);
+                messages.Add(new MessageModel(
+                    botResponse,
+                    "bot",
+                    DateTime.Now
+                ));
+            }
+        }
+        catch (TaskCanceledException)
+        {
+            messages.Add(new MessageModel(
+                "Request timed out. Please try again.",
+                "bot",
+                DateTime.Now
+            ));
+        }
+        catch (Exception ex)
+        {
+            messages.Add(new MessageModel(
+                $"I'm having trouble answering that. Please try again or contact our solar experts.",
+                "bot",
+                DateTime.Now
+            ));
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    private void SendSuggestedQuestion(string question)
+    {
+        userInput = question;
+        SendMessage();
+    }
+
+    private string GetSolarResponse(string input)
+    {
+        // Convert to lowercase for easier matching
+        string lowerInput = input.ToLower();
+
+        // Check against our solar knowledge base
+        foreach (var keyword in solarKnowledge.Keys)
+        {
+            if (lowerInput.Contains(keyword))
+            {
+                return solarKnowledge[keyword];
+            }
+        }
+
+        // Check for common solar questions
+        if (lowerInput.Contains("how much") || lowerInput.Contains("cost"))
+            return solarKnowledge["cost"];
+
+        if (lowerInput.Contains("incentive") || lowerInput.Contains("tax credit") || lowerInput.Contains("rebate"))
+            return solarKnowledge["incentives"];
+
+        if (lowerInput.Contains("install") || lowerInput.Contains("time") || lowerInput.Contains("long"))
+            return solarKnowledge["installation"];
+
+        if (lowerInput.Contains("maintain") || lowerInput.Contains("clean"))
+            return solarKnowledge["maintenance"];
+
+        if (lowerInput.Contains("size") || lowerInput.Contains("big") || lowerInput.Contains("kw"))
+            return solarKnowledge["size"];
+
+        if (lowerInput.Contains("battery") || lowerInput.Contains("storage"))
+            return solarKnowledge["battery"];
+
+        if (lowerInput.Contains("save") || lowerInput.Contains("payback"))
+            return solarKnowledge["savings"];
+
+        if (lowerInput.Contains("efficiency") || lowerInput.Contains("effective"))
+            return solarKnowledge["efficiency"];
+
+        if (lowerInput.Contains("roof") || lowerInput.Contains("shingle") || lowerInput.Contains("tile"))
+            return solarKnowledge["roof"];
+
+        if (lowerInput.Contains("warranty") || lowerInput.Contains("guarantee"))
+            return solarKnowledge["warranty"];
+
+        return null;
+    }
+
+    private void HandleKeyPress(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter" && !isLoading)
+        {
+            SendMessage();
+        }
+    }
+
+    public void Dispose()
+    {
+        cts?.Cancel();
+        cts?.Dispose();
+    }
+
+    private class MessageModel
+    {
+        public string Text { get; }
+        public string Class { get; }
+        public DateTime Timestamp { get; }
+        public bool IsSolarContent { get; }
+        public string FormattedContent { get; }
+
+        public MessageModel(string text, string sender, DateTime timestamp, bool isSolarContent = false)
+        {
+            Text = text;
+            Class = sender == "user" ? "user-message" : "bot-message";
+            Timestamp = timestamp;
+            IsSolarContent = isSolarContent;
+
+            // Format solar responses with HTML
+            if (isSolarContent)
+            {
+                FormattedContent = FormatSolarResponse(text);
+            }
+            else
+            {
+                FormattedContent = System.Net.WebUtility.HtmlEncode(text);
+            }
+        }
+
+        private string FormatSolarResponse(string response)
+        {
+            // Add solar-specific formatting
+            string formatted = System.Net.WebUtility.HtmlEncode(response)
+                .Replace("<br>", "<br/>")
+                .Replace("- ", "• ");
+
+            return formatted;
+        }
+    }
+}

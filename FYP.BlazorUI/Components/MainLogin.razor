@@ -1,0 +1,349 @@
+﻿@page "/login"
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.EntityFrameworkCore
+@rendermode InteractiveServer
+<style>
+    /* Login Container */
+    .login-container {
+        display: flex;
+        min-height: 100vh;
+        position: relative;
+        overflow: hidden;
+        font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Video/Image Section */
+    .video-section {
+        flex: 1;
+        position: relative;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        overflow: hidden;
+    }
+
+    .bg-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        filter: brightness(0.7) contrast(1.1);
+        transition: all 0.8s ease;
+    }
+
+        .bg-image:hover {
+            transform: scale(1.05);
+            filter: brightness(0.8) contrast(1.2);
+        }
+
+    /* Overlay gradient for better text readability */
+    .video-section::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(102, 126, 234, 0.3) 0%, rgba(118, 75, 162, 0.4) 50%, rgba(255, 154, 0, 0.2) 100%);
+        z-index: 2;
+        mix-blend-mode: overlay;
+    }
+
+    /* Login Form Section */
+    .login-form-section {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        padding: 2rem;
+        position: relative;
+    }
+
+        /* Animated background pattern */
+        .login-form-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s ease-in-out infinite;
+            z-index: 1;
+        }
+
+    @@keyframes float {
+        0%, 100%
+
+    {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -30px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+    }
+
+    }
+
+    /* Login Card */
+    .login-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 3rem 2.5rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+        max-width: 450px;
+        width: 100%;
+        position: relative;
+        z-index: 2;
+        transform: translateY(0);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+        .login-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15), 0 16px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        /* Title Styling */
+        .login-card h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            margin-top: 0 !important;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+            .login-card h1::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, #667eea, #764ba2);
+                border-radius: 2px;
+                animation: pulse 2s ease-in-out infinite;
+            }
+
+    @@keyframes pulse {
+        0%, 100%
+
+    {
+        opacity: 1;
+        width: 60px;
+    }
+
+    50% {
+        opacity: 0.7;
+        width: 80px;
+    }
+
+    }
+
+    /* Tagline */
+    .tagline {
+        color: #6b7280;
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 2.5rem;
+        letter-spacing: 0.01em;
+        opacity: 0.8;
+    }
+
+    /* Google Sign-in Button */
+    .google-signin-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 16px 24px;
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+        border: 2px solid #e5e7eb;
+        border-radius: 16px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #374151;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .google-signin-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.5s;
+        }
+
+        .google-signin-btn:hover::before {
+            left: 100%;
+        }
+
+        .google-signin-btn:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.3), 0 6px 12px rgba(102, 126, 234, 0.2);
+        }
+
+        .google-signin-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.3), 0 2px 4px rgba(102, 126, 234, 0.2);
+        }
+
+    /* Google Logo */
+    .google-logo {
+        width: 24px;
+        height: 24px;
+        transition: all 0.3s ease;
+    }
+
+    .google-signin-btn:hover .google-logo {
+        filter: brightness(0) invert(1);
+        transform: rotate(360deg);
+    }
+
+    /* Button Text */
+    .texts {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .login-container
+
+    {
+        flex-direction: column;
+    }
+
+    .video-section {
+        min-height: 40vh;
+    }
+
+    .login-form-section {
+        min-height: 60vh;
+        padding: 1.5rem;
+    }
+
+    .login-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+    }
+
+        .login-card h1 {
+            font-size: 1.8rem;
+        }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    }
+
+    @@media (max-width: 480px) {
+        .login-card
+
+    {
+        padding: 1.5rem 1rem;
+    }
+
+    .login-card h1 {
+        font-size: 1.6rem;
+    }
+
+    .google-signin-btn {
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    }
+
+    /* Loading animation for the entire page */
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .login-card {
+        animation: fadeInUp 0.8s ease-out;
+    }
+
+        /* Additional hover effects */
+        .login-card:hover h1::after {
+            animation-duration: 1s;
+        }
+
+    /* Focus states for accessibility */
+    .google-signin-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 12px 24px rgba(102, 126, 234, 0.2);
+    }
+
+</style>
+
+
+<div class="login-container">
+    <div class="video-section">
+        <img src="/img/1.2kw.png" alt="Background image" class="bg-image" />
+    </div>
+    <div class="login-form-section">
+        <div class="login-card">
+
+            <h1 style="margin-top:5rem;">MZE Electrical and Solar Services</h1>
+            <p class="tagline">Powering a Brighter Future</p>
+            <button class="google-signin-btn" @onclick="RedirectToGoogle">
+                <img src="icon/google-icon.png" alt="Google Logo" class="google-logo" /> <h5 class="texts">Sign in with Google</h5>
+            </button>
+        </div>
+    </div>
+</div>
+
+@code {
+    private void RedirectToGoogle()
+    {
+        Navigation.NavigateTo("/signin", forceLoad: true);
+    }
+}
+
+
+
+<!-- Add Remix Icon CDN in your _Layout.cshtml or _Host.cshtml -->
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">

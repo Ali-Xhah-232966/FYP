@@ -16,5 +16,16 @@ namespace FYP.DAL
 
         public DbSet<ContactUs> ContactUsMessages { get; set; }
         public DbSet<ProjectSubmission> ProjectSubmissions { get; set; }
+
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<AppUser> GoogleUsers { get; set; }
+
+
+
+
+
+
+
     }
 }

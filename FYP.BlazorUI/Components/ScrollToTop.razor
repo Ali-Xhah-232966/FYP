@@ -1,0 +1,16 @@
+﻿@inject IJSRuntime JS
+@inject NavigationManager Navigation
+
+@code {
+    private string _lastUri;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // Whenever Navigation.Uri changes, call scrollToTop in JS
+        if (_lastUri != Navigation.Uri)
+        {
+            _lastUri = Navigation.Uri;
+            await JS.InvokeVoidAsync("scrollToTop");
+        }
+    }
+}

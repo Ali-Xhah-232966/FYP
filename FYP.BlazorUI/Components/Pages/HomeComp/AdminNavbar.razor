@@ -1,0 +1,49 @@
+﻿@inject NavigationManager Nav
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img src="/LOGO.jpg" alt="Logo" height="40" class="me-2" />
+            <span>Solar & Electrical Solutions</span>
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="admindashboard" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+                                  
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="reviews">
+                        <span class="bi bi-envelope-fill-nav-menu" aria-hidden="true"></span> Testimonials
+                    </NavLink>
+                </li>
+            </ul>
+
+            <div class="d-flex">
+                <a class="btn btn-outline-light me-2" href="/login">Login</a>
+                <a class="btn btn-success" href="/logout">Log Out</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private string Active(string path)
+      => Nav.Uri.EndsWith(path, StringComparison.OrdinalIgnoreCase)
+         ? "active"
+         : "";
+}

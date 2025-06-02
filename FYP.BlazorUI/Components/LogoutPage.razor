@@ -1,0 +1,17 @@
+﻿@page "/logout"
+@using Microsoft.AspNetCore.Authentication
+@inject NavigationManager NavManager
+
+@code {
+    [CascadingParameter]
+    public HttpContext httpContext { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await httpContext.SignOutAsync(AppConstant.AuthScheme);
+        NavManager.NavigateTo("/", true); // force reload
+    }
+
+    // Prevent rendering any UI
+    protected override bool ShouldRender() => false;
+}

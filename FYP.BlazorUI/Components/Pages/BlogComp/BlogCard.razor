@@ -1,0 +1,114 @@
+﻿@using FYP.DAL.Entities
+@code {
+    [Parameter] public Blog Blog { get; set; }
+}
+
+<style>
+    .blog-card {
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 15px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        min-height: 400px;
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+    }
+
+        .blog-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 3;
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px 15px 0 0;
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 2;
+    }
+
+    .blog-card:hover .card-img-top {
+        transform: translateY(-5px);
+        z-index: 4;
+    }
+
+    .card-title {
+        color: #2d3748;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .card-text {
+        color: rgba(0, 0, 0, 0.8);
+        min-height: 80px;
+        line-height: 1.6;
+        font-size: 0.95rem;
+    }
+
+    .read-more-btn {
+        background: #6b46c1;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        position: relative;
+        z-index: 2;
+    }
+
+        .read-more-btn:hover {
+            background: #805ad5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(107, 70, 193, 0.3);
+        }
+
+    @@keyframes card-enter {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .blog-card {
+        animation: card-enter 0.6s ease forwards;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+        position: relative;
+        z-index: 2;
+    }
+</style>
+
+<div class="card m-2 blog-card" style="width: 18rem;">
+    @if (!string.IsNullOrEmpty(Blog.ImagePath))
+    {
+        <div style="overflow: hidden; border-radius: 15px 15px 0 0;">
+            <img src="@Blog.ImagePath" class="card-img-top" />
+        </div>
+    }
+    <div class="card-content">
+        <h5 class="card-title">@Blog.Title</h5>
+        <p class="card-text">
+            @((Blog.Content?.Length ?? 0) > 100
+                ? Blog.Content.Substring(0, 100) + "…"
+                : Blog.Content)
+        </p>
+        <NavLink class="btn read-more-btn mt-2" href="@($"/blogs/{Blog.Id}")">
+            Read More
+        </NavLink>
+    </div>
+</div>

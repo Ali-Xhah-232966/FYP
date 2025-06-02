@@ -1,0 +1,150 @@
+﻿@using FYP.DAL.Entities
+@inject IReviewService ReviewSvc
+
+<section class="testimonials">
+    <div class="container">
+
+        <div class="header-wrapper">
+            <h2>Hear From Our Community</h2>
+            <div class="cta-buttons">
+                <a href="/Reviews" class="cta-link primary">Share Your Experience</a>
+            </div>
+        </div>
+
+        <div class="testimonial-slider">
+            @if (topReviews != null)
+            {
+                <div class="testimonial-track" style="transform: translateX(@(-currentIndex * 102)%)">
+                    @foreach (var review in topReviews)
+                    {
+                        <div class="testimonial-card">
+                            <div class="card-glow"></div>
+                            <div class="user-profile">
+                                <div class="profile-initials">@GetInitials(review.UserName)</div>
+                                <div class="profile-ring"></div>
+                            </div>
+                            <div class="rating">
+                                @for (int i = 0; i < review.Rating; i++)
+                                {
+                                    <i class="fas fa-star"></i>
+                                }
+                                @for (int i = review.Rating; i < 5; i++)
+                                {
+                                    <i class="far fa-star"></i>
+                                }
+                            </div>
+                            <blockquote>"@review.Comment"</blockquote>
+                            <div class="customer-info">
+                                <span class="name">@review.UserName</span>
+                                <span class="date">@review.CreatedAt.ToLocalTime().ToString("MMM dd, yyyy")</span>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+
+            <div class="slider-navigation">
+                <button class="nav-btn prev" @onclick="Previous" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="nav-btn next" @onclick="NextManual" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="slider-dots">
+                @if (topReviews != null)
+                {
+                    @for (int i = 0; i < topReviews.Count; i++)
+                    {
+                        int index = i;
+                        <button class="dot @(i == currentIndex ? "active" : "")"
+                                @onclick="() => GoToSlide(index)"
+                                aria-label="Go to testimonial @(i+1)"></button>
+                    }
+                }
+            </div>
+        </div>
+
+        <div class="testimonial-stats">
+            <div class="stat-item">
+                <span class="stat-number">@(topReviews?.Count ?? 0)</span>
+                <span class="stat-label">Featured Reviews</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">@(topReviews?.Average(r => r.Rating).ToString("F1") ?? "0")</span>
+                <span class="stat-label">Average Rating</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private List<Review> topReviews;
+    private int currentIndex = 0;
+    private Timer autoSwitchTimer;
+
+    protected override async Task OnInitializedAsync()
+    {
+        topReviews = await ReviewSvc.GetTopAsync(5);
+        StartAutoSwitch();
+    }
+
+    private void StartAutoSwitch()
+    {
+        autoSwitchTimer = new Timer(_ =>
+        {
+            InvokeAsync(() =>
+            {
+                Next();
+                StateHasChanged();
+            });
+        }, null, 5000, 5000); // Auto switch every 5 seconds
+    }
+
+    private void Next()
+    {
+        currentIndex = (currentIndex + 1) % (topReviews?.Count ?? 1);
+    }
+
+    private void Previous()
+    {
+        currentIndex = currentIndex == 0 ? (topReviews?.Count - 1 ?? 0) : currentIndex - 1;
+    }
+
+    private void NextManual()
+    {
+        Next();
+        RestartAutoSwitch();
+    }
+
+    private void GoToSlide(int index)
+    {
+        currentIndex = index;
+        RestartAutoSwitch();
+    }
+
+    private void RestartAutoSwitch()
+    {
+        autoSwitchTimer?.Dispose();
+        StartAutoSwitch();
+    }
+
+    private string GetInitials(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name)) return "??";
+        var parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        return parts.Length switch
+        {
+            0 => "??",
+            1 => name[0].ToString().ToUpper(),
+            _ => $"{parts[0][0]}{parts[^1][0]}".ToUpper()
+        };
+    }
+
+    public void Dispose()
+    {
+        autoSwitchTimer?.Dispose();
+    }
+}
+

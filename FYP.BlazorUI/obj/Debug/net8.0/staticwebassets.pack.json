@@ -1,28 +1,100 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
-      "PackagePath": "staticwebassets\\FYP.BlazorUI.01u8z27jrx.bundle.scp.css"
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\FYP.BlazorUI.bundle.scp.css",
+      "PackagePath": "staticwebassets\\FYP.BlazorUI.jovcow9qmx.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\LOGO.jpg",
+      "PackagePath": "staticwebassets\\LOGO.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video-new.mp4",
+      "PackagePath": "staticwebassets\\bootstrap\\video-new.mp4"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\bootstrap\\video1.mp4",
+      "PackagePath": "staticwebassets\\bootstrap\\video1.mp4"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\scroll.js",
+      "PackagePath": "staticwebassets\\css\\scroll.js"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\alixh\\source\\repos\\FYP\\FYP.BlazorUI\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\icon\\google-icon.png",
+      "PackagePath": "staticwebassets\\icon\\google-icon.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image1.png",
+      "PackagePath": "staticwebassets\\image1.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image2.png",
+      "PackagePath": "staticwebassets\\image2.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\image3.png",
+      "PackagePath": "staticwebassets\\image3.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\1.2kw.png",
+      "PackagePath": "staticwebassets\\img\\1.2kw.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\10kw.jpg",
+      "PackagePath": "staticwebassets\\img\\10kw.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\2.2kw.png",
+      "PackagePath": "staticwebassets\\img\\2.2kw.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\20kw.jpg",
+      "PackagePath": "staticwebassets\\img\\20kw.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\3.2kw.png",
+      "PackagePath": "staticwebassets\\img\\3.2kw.png"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\30kw.jpg",
+      "PackagePath": "staticwebassets\\img\\30kw.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\5kw.jpg",
+      "PackagePath": "staticwebassets\\img\\5kw.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\img\\inverter.jpg",
+      "PackagePath": "staticwebassets\\img\\inverter.jpg"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\solar.txt",
+      "PackagePath": "staticwebassets\\solar.txt"
+    },
+    {
+      "Id": "D:\\test\\FYP\\FYP.BlazorUI\\wwwroot\\uploads\\a736b4e4-7c72-42a7-8a9b-684c037a2ae7.png",
+      "PackagePath": "staticwebassets\\uploads\\a736b4e4-7c72-42a7-8a9b-684c037a2ae7.png"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.FYP.BlazorUI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",

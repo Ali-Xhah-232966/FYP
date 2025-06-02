@@ -1,0 +1,25 @@
+﻿@* Components/HeroSection.razor *@
+@inject NavigationManager NavigationManager
+
+<header class="hero-section">
+    <video class="hero-video" autoplay loop muted>
+        <source src="/bootstrap/video-new.mp4" type="video/mp4">
+    </video>
+
+   
+
+    <div class="container">
+        <div class="hero-content">
+            <h1>Solar & Electrical Solutions for Every Need</h1>
+            <p>Professional, affordable, and reliable solar and electrical services for residential and commercial clients.</p>
+            <button class="btn btn-primary" @onclick="NavigateToServices">Ask Anything</button>
+        </div>
+    </div>
+</header>
+
+@code {
+    private void NavigateToServices()
+    {
+        NavigationManager.NavigateTo("/solar-assistant");
+    }
+}

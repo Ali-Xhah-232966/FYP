@@ -11,3 +11,16 @@ C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.dll
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\refint\FYP.DAL.dll
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.pdb
 C:\Users\alixh\source\repos\FYP\FYP.DAL\obj\Debug\net8.0\ref\FYP.DAL.dll
+D:\test\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.deps.json
+D:\test\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.dll
+D:\test\FYP\FYP.DAL\bin\Debug\net8.0\FYP.DAL.pdb
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.csproj.AssemblyReference.cache
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfoInputs.cache
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.AssemblyInfo.cs
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.csproj.CoreCompileInputs.cache
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.sourcelink.json
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.dll
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\refint\FYP.DAL.dll
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\FYP.DAL.pdb
+D:\test\FYP\FYP.DAL\obj\Debug\net8.0\ref\FYP.DAL.dll

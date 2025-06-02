@@ -1,0 +1,89 @@
+﻿@inject NavigationManager Nav
+@inject AuthenticationStateProvider AuthStateProvider
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+            <img src="/LOGO.jpg" alt="Logo" height="40" class="me-2" />
+            <span>Solar & Electrical Solutions</span>
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/" Match="NavLinkMatch.All">
+                        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="create-project">
+                        <span class="bi bi-briefcase-fill-nav-menu" aria-hidden="true"></span> Services
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="blogs">
+                        <span class="bi bi-newspaper-fill-nav-menu" aria-hidden="true"></span> Blog
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="contact-us">
+                        <span class="bi bi-envelope-fill-nav-menu" aria-hidden="true"></span> Contact
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="about">
+                        <span class="bi bi-envelope-fill-nav-menu" aria-hidden="true"></span> About Us
+                    </NavLink>
+                </li>
+            </ul>
+
+            <div class="d-flex">
+                @if (isAuthenticated)
+                {
+                    <NavLink class="btn btn-success me-2" href="@dashboardLink">Dashboard</NavLink>
+                    <NavLink class="btn btn-outline-light me-2" href="logout">LogOut</NavLink>
+
+                }
+                else
+                {
+                    <a class="btn btn-success me-2" href="/login">Login</a>
+                }
+            </div>
+        </div>
+    </div>
+</nav>
+
+@code {
+    private bool isAuthenticated = false;
+    private string userRole = string.Empty;
+    private string dashboardLink = "/userdashboard"; // default
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        isAuthenticated = user.Identity?.IsAuthenticated ?? false;
+
+        if (isAuthenticated)
+        {
+            userRole = user.FindFirst(ClaimTypes.Role)?.Value ?? "user";
+            dashboardLink = userRole.ToLower() == "admin" ? "/admindashboard" : "/userdashboard";
+        }
+    }
+
+    private string Active(string path)
+      => Nav.Uri.EndsWith(path, StringComparison.OrdinalIgnoreCase) ? "active" : "";
+}
